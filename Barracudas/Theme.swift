@@ -34,8 +34,7 @@ struct Theme {
         UINavigationBar.appearance().barStyle = barStyle
         UITabBar.appearance().barStyle = barStyle
         
-        // switch - TODO decide 
-        //UISwitch.appearance().onTintColor = mainColor.withAlphaComponent(0.3)
-        //UISwitch.appearance().thumbTintColor = mainColor
+        // switch buttons
+        UISwitch.appearance().onTintColor = mainColor
     }
 }
