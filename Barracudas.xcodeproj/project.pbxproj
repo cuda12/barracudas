@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E12331F1A293000318439 /* RostersTableViewController.swift */; };
+		A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23521F20FC1500E3ADAA /* Theme.swift */; };
+		A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23541F20FEDC00E3ADAA /* Convenience.swift */; };
 		A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14CA4891F20E72900DB0366 /* ContactTableViewController.swift */; };
 		A14CA48C1F20EB1F00DB0366 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14CA48B1F20EB1F00DB0366 /* MoreTableViewController.swift */; };
 		A15EA04D1F1511B500B8B310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EA04C1F1511B500B8B310 /* AppDelegate.swift */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		050E12331F1A293000318439 /* RostersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RostersTableViewController.swift; sourceTree = "<group>"; };
+		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A14CA4891F20E72900DB0366 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		A14CA48B1F20EB1F00DB0366 /* MoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		A15EA0491F1511B500B8B310 /* Barracudas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barracudas.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,7 @@
 				A15EA05E1F15215300B8B310 /* NewsTableViewCell.swift */,
 				A183521F1F2094840087A717 /* StandingsTableViewCell.swift */,
 				A18352311F20D5840087A717 /* NotificationsTableViewCell.swift */,
+				A13C23521F20FC1500E3ADAA /* Theme.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				A15EA0581F1511B500B8B310 /* Info.plist */,
+				A13C23541F20FEDC00E3ADAA /* Convenience.swift */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -214,9 +220,11 @@
 				A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
+				A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */,
 				A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */,
 				A14CA48C1F20EB1F00DB0366 /* MoreTableViewController.swift in Sources */,
 				A15EA0671F15220800B8B310 /* NewsArticleViewController.swift in Sources */,
+				A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */,
 				A18352281F20A60A0087A717 /* TeamDetails.swift in Sources */,
 				A15EA0651F1521E700B8B310 /* NewsTableViewController.swift in Sources */,
 			);
