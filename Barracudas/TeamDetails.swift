@@ -30,7 +30,7 @@ extension TeamDetails {
         
         teamsArray.append(TeamDetails(abbrTeamName: "NLA", fullTeamName: "NLA", description: "Adult Baseball"))
         teamsArray.append(TeamDetails(abbrTeamName: "NLB", fullTeamName: "NLB", description: "Adult Baseball"))
-        teamsArray.append(TeamDetails(abbrTeamName: "1L", fullTeamName: "1. Liga", description: "Adult Baseball"))
+        teamsArray.append(TeamDetails(abbrTeamName: "1. Liga", fullTeamName: "1. Liga", description: "Adult Baseball"))
         teamsArray.append(TeamDetails(abbrTeamName: "FPSB", fullTeamName: "Softball", description: "Women Fastpitch Softball"))
         teamsArray.append(TeamDetails(abbrTeamName: "U15", fullTeamName: "Cadets", description: "Youth Baseball"))
         teamsArray.append(TeamDetails(abbrTeamName: "U12", fullTeamName: "Juvenilles", description: "Youth Baseball"))

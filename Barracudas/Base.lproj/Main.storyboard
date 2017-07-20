@@ -60,13 +60,13 @@
         <scene sceneID="mG3-hh-WRp">
             <objects>
                 <tableViewController storyboardIdentifier="rosterTeamViewController" id="zXM-Ob-PFW" customClass="RosterTeamTableViewController" customModule="Barracudas" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="84" sectionHeaderHeight="18" sectionFooterHeight="18" id="BoA-0i-rlI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="BoA-0i-rlI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="playersCell" textLabel="M4T-5m-uBC" detailTextLabel="h3w-9I-2nF" rowHeight="84" style="IBUITableViewCellStyleSubtitle" id="HXI-sh-7ou">
-                                <rect key="frame" x="0.0" y="55.5" width="320" height="84"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HXI-sh-7ou" id="x17-kH-Akx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
@@ -304,7 +304,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="304" height="79.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Iq1-zX-4bz" userLabel="Title Stack View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="156" height="79.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="155" height="79.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="NLA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSa-UD-xui">
                                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="14.5"/>
@@ -314,7 +314,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="749" text="The Cudas take two from xxx" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfR-rb-JLl">
-                                                                    <rect key="frame" x="0.0" y="18.5" width="156" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="18.5" width="155" height="43.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -331,7 +331,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wfg-8c-la2">
-                                                            <rect key="frame" x="164" y="0.0" width="140" height="79.5"/>
+                                                            <rect key="frame" x="163" y="0.0" width="141" height="79.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="wfg-8c-la2" secondAttribute="height" multiplier="16:9" id="wn8-0V-eRZ"/>
                                                             </constraints>
@@ -668,17 +668,17 @@
             </objects>
             <point key="canvasLocation" x="2267" y="1455"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Notifications Table View Controller-->
         <scene sceneID="mYp-2e-hUN">
             <objects>
-                <tableViewController id="wjc-Ci-cGV" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pav-6Z-3fW">
+                <tableViewController id="wjc-Ci-cGV" customClass="NotificationsTableViewController" customModule="Barracudas" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Pav-6Z-3fW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tXa-bD-fjQ">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationsCell" id="tXa-bD-fjQ" customClass="NotificationsTableViewCell" customModule="Barracudas" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tXa-bD-fjQ" id="bst-Sa-g4r">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -686,6 +686,9 @@
                                     <subviews>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZDP-SR-OU9">
                                             <rect key="frame" x="255" y="6" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="toggleSwitch:" destination="tXa-bD-fjQ" eventType="valueChanged" id="PC2-8v-pkh"/>
+                                            </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHq-Xd-NJw">
                                             <rect key="frame" x="16" y="11" width="42" height="21"/>
@@ -701,6 +704,10 @@
                                         <constraint firstItem="ZDP-SR-OU9" firstAttribute="centerY" secondItem="bst-Sa-g4r" secondAttribute="centerY" id="u4Q-RM-lXO"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="notificationSwitch" destination="ZDP-SR-OU9" id="3T7-qc-3PL"/>
+                                    <outlet property="notificationTitle" destination="YHq-Xd-NJw" id="Pht-TO-V3n"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

@@ -10,6 +10,13 @@ import UIKit
 
 class ScheduleViewController: UIViewController {
 
+    // MARK: Members
+    
+    let sectionTitles = ["NLA", "FPSB", "NLB", "1. Liga", "U15", "U12"]
+    
+    
+    // MARK: Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,14 +35,30 @@ class ScheduleViewController: UIViewController {
 
 extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
     
+    // build sections
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionTitles.count
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
+    
+    // build cells for each section
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO
-        return 2
+        if section == 0 {
+            return 2
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.row == 0 {
+        if indexPath.section > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleNoGamesCell", for: indexPath) 
             return cell
         } else {

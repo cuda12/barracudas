@@ -11,7 +11,7 @@ import UIKit
 class RosterTeamTableViewController: UITableViewController {
     
     // MARK: Members
-
+    let sectionTitles = ["Pitchers", "Infielders", "Outfielders", "Coaches"]
     var teamDetails: TeamDetails!
 
     
@@ -33,14 +33,17 @@ class RosterTeamTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        // TODO sections for P IF OF Coaches
-        return 1
+        return sectionTitles.count
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section]
+    }
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
