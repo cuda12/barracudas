@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E12331F1A293000318439 /* RostersTableViewController.swift */; };
 		A15EA04D1F1511B500B8B310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EA04C1F1511B500B8B310 /* AppDelegate.swift */; };
 		A15EA0521F1511B500B8B310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15EA0501F1511B500B8B310 /* Main.storyboard */; };
 		A15EA0541F1511B500B8B310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15EA0531F1511B500B8B310 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050E12331F1A293000318439 /* RostersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RostersTableViewController.swift; sourceTree = "<group>"; };
 		A15EA0491F1511B500B8B310 /* Barracudas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barracudas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15EA04C1F1511B500B8B310 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A15EA0511F1511B500B8B310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		A15EA0611F15218100B8B310 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				050E12331F1A293000318439 /* RostersTableViewController.swift */,
 				A15EA0641F1521E700B8B310 /* NewsTableViewController.swift */,
 				A15EA0661F15220800B8B310 /* NewsArticleViewController.swift */,
 			);
@@ -134,7 +137,6 @@
 				TargetAttributes = {
 					A15EA0481F1511B500B8B310 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 39SU5X655D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -176,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A15EA04D1F1511B500B8B310 /* AppDelegate.swift in Sources */,
+				050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A15EA0671F15220800B8B310 /* NewsArticleViewController.swift in Sources */,
 				A15EA0651F1521E700B8B310 /* NewsTableViewController.swift in Sources */,
@@ -303,7 +306,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 39SU5X655D;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Barracudas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuda12.Barracudas;
@@ -316,7 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 39SU5X655D;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Barracudas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuda12.Barracudas;
@@ -344,6 +347,7 @@
 				A15EA05D1F1511B500B8B310 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

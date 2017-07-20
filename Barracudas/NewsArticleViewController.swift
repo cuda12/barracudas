@@ -14,6 +14,8 @@ class NewsArticleViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // TODO load actual content
     }
 
     override func didReceiveMemoryWarning() {
