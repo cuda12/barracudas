@@ -17,7 +17,9 @@ class RostersTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // remove any empty cells at the end
+        tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
