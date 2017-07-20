@@ -19,6 +19,7 @@
 		A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18352231F2095ED0087A717 /* StandingsViewController.swift */; };
 		A18352261F209F260087A717 /* RosterTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18352251F209F260087A717 /* RosterTeamTableViewController.swift */; };
 		A18352281F20A60A0087A717 /* TeamDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18352271F20A60A0087A717 /* TeamDetails.swift */; };
+		A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183522D1F20B8D80087A717 /* ScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A18352231F2095ED0087A717 /* StandingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
 		A18352251F209F260087A717 /* RosterTeamTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTeamTableViewController.swift; sourceTree = "<group>"; };
 		A18352271F20A60A0087A717 /* TeamDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetails.swift; sourceTree = "<group>"; };
+		A183522D1F20B8D80087A717 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				A15EA0661F15220800B8B310 /* NewsArticleViewController.swift */,
 				A18352231F2095ED0087A717 /* StandingsViewController.swift */,
 				A18352251F209F260087A717 /* RosterTeamTableViewController.swift */,
+				A183522D1F20B8D80087A717 /* ScheduleViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */,
 				A18352261F209F260087A717 /* RosterTeamTableViewController.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
+				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
 				A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */,
 				A15EA0671F15220800B8B310 /* NewsArticleViewController.swift in Sources */,
 				A18352281F20A60A0087A717 /* TeamDetails.swift in Sources */,
