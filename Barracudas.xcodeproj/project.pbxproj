@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E12331F1A293000318439 /* RostersTableViewController.swift */; };
+		A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14CA4891F20E72900DB0366 /* ContactTableViewController.swift */; };
+		A14CA48C1F20EB1F00DB0366 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14CA48B1F20EB1F00DB0366 /* MoreTableViewController.swift */; };
 		A15EA04D1F1511B500B8B310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EA04C1F1511B500B8B310 /* AppDelegate.swift */; };
 		A15EA0521F1511B500B8B310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A15EA0501F1511B500B8B310 /* Main.storyboard */; };
 		A15EA0541F1511B500B8B310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15EA0531F1511B500B8B310 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		050E12331F1A293000318439 /* RostersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RostersTableViewController.swift; sourceTree = "<group>"; };
+		A14CA4891F20E72900DB0366 /* ContactTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
+		A14CA48B1F20EB1F00DB0366 /* MoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		A15EA0491F1511B500B8B310 /* Barracudas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barracudas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A15EA04C1F1511B500B8B310 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A15EA0511F1511B500B8B310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				A18352231F2095ED0087A717 /* StandingsViewController.swift */,
 				A183522D1F20B8D80087A717 /* ScheduleViewController.swift */,
 				A183522F1F20D2670087A717 /* NotificationsTableViewController.swift */,
+				A14CA4891F20E72900DB0366 /* ContactTableViewController.swift */,
+				A14CA48B1F20EB1F00DB0366 /* MoreTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -158,6 +164,7 @@
 				TargetAttributes = {
 					A15EA0481F1511B500B8B310 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 39SU5X655D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -204,9 +211,11 @@
 				A18352201F2094840087A717 /* StandingsTableViewCell.swift in Sources */,
 				050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */,
 				A18352261F209F260087A717 /* RosterTeamTableViewController.swift in Sources */,
+				A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
 				A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */,
+				A14CA48C1F20EB1F00DB0366 /* MoreTableViewController.swift in Sources */,
 				A15EA0671F15220800B8B310 /* NewsArticleViewController.swift in Sources */,
 				A18352281F20A60A0087A717 /* TeamDetails.swift in Sources */,
 				A15EA0651F1521E700B8B310 /* NewsTableViewController.swift in Sources */,
@@ -334,7 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 39SU5X655D;
 				INFOPLIST_FILE = Barracudas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuda12.Barracudas;
@@ -347,7 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 39SU5X655D;
 				INFOPLIST_FILE = Barracudas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuda12.Barracudas;
