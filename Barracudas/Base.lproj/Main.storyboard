@@ -43,9 +43,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="zXM-Ob-PFW" kind="show" id="703-k1-sLQ"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -59,17 +56,17 @@
             </objects>
             <point key="canvasLocation" x="2268" y="-619"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Roster Team Table View Controller-->
         <scene sceneID="mG3-hh-WRp">
             <objects>
-                <tableViewController id="zXM-Ob-PFW" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="BoA-0i-rlI">
+                <tableViewController storyboardIdentifier="rosterTeamViewController" id="zXM-Ob-PFW" customClass="RosterTeamTableViewController" customModule="Barracudas" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="84" sectionHeaderHeight="18" sectionFooterHeight="18" id="BoA-0i-rlI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="playersCell" textLabel="M4T-5m-uBC" detailTextLabel="h3w-9I-2nF" rowHeight="84" style="IBUITableViewCellStyleSubtitle" id="HXI-sh-7ou">
-                                <rect key="frame" x="0.0" y="28" width="320" height="84"/>
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HXI-sh-7ou" id="x17-kH-Akx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
