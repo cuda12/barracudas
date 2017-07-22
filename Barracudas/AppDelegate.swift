@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuthUI
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // load customized theme
         Theme.applyTheme()
         
+        // configure Firebase
+        FirebaseApp.configure()
         
         return true
     }
