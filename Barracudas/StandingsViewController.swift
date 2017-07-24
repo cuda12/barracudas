@@ -26,6 +26,19 @@ class StandingsViewController: UIViewController {
         // remove any empty cells at the end
         tableStandings.tableFooterView = UIView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // load the current standings
+        print("download standings from spielplan")
+        SBSFClient.sharedInstance().getStandings { (result, error) in
+            print("todo handle results")
+            print(result)
+            
+            // TODO load here presistent data and make an update request
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

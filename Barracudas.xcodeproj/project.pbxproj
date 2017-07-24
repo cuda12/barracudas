@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E12331F1A293000318439 /* RostersTableViewController.swift */; };
+		05DCEC611F2512C40039EDA0 /* SBSFClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCEC601F2512C40039EDA0 /* SBSFClient.swift */; };
 		95060FCCBC81063EE099DA78 /* Pods_Barracudas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CDA768CE955E5764F000A4 /* Pods_Barracudas.framework */; };
 		A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23521F20FC1500E3ADAA /* Theme.swift */; };
 		A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23541F20FEDC00E3ADAA /* Convenience.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		050E12331F1A293000318439 /* RostersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RostersTableViewController.swift; sourceTree = "<group>"; };
+		05DCEC601F2512C40039EDA0 /* SBSFClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBSFClient.swift; sourceTree = "<group>"; };
 		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A13C23561F22520000E3ADAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				A18352271F20A60A0087A717 /* TeamDetails.swift */,
+				05DCEC601F2512C40039EDA0 /* SBSFClient.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
+				05DCEC611F2512C40039EDA0 /* SBSFClient.swift in Sources */,
 				A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */,
 				A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */,
 				A14CA48C1F20EB1F00DB0366 /* MoreTableViewController.swift in Sources */,
