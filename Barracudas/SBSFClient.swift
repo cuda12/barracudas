@@ -42,6 +42,8 @@ class SBSFClient: NSObject {
         // make the request
         let task = session.dataTask(with: request) { (data, response, error) in
             
+            // TODO prober handle of errors 
+            
             // check error
             guard (error == nil) else {
                 print("there was an error in the request to spielplan \(error!)")
@@ -62,9 +64,6 @@ class SBSFClient: NSObject {
                 return
             }
             
-            // TODO
-            print(data)
-            
             // parse the data and send it to the completion handler
             self.convertJsonToDict(data: data, withCompletionHandler: completionHandlerForGET)
         }
@@ -82,6 +81,8 @@ class SBSFClient: NSObject {
         
         let parameters = [String: AnyObject]()
         
+        
+        // TODO maybe do some postprocessing parsing here
         _ = taskForGETMethod(Methods.Standings, parameters: parameters, completionHandlerForGET: completionHanlder)
         
     }

@@ -51,6 +51,15 @@ class StandingsViewController: UIViewController {
 
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // TODO depending on groups and maybe playoffs
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Group \(section)"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO
         return 8
@@ -72,7 +81,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.labelWL.text = "\(10-index) - \(index)"
             cell.labelPct.text = ".\(10-index)00"
             cell.labelGb.text = "\(index-1)"
-            cell.labelRuns.text = "\(5-index)"
+            cell.labelStrk.text = "W\(10-index)"
         }
         
         return cell

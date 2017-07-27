@@ -14,7 +14,7 @@ class StandingsTableViewCell: UITableViewCell {
     @IBOutlet weak var labelWL: UILabel!
     @IBOutlet weak var labelPct: UILabel!
     @IBOutlet weak var labelGb: UILabel!
-    @IBOutlet weak var labelRuns: UILabel!
+    @IBOutlet weak var labelStrk: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +25,7 @@ class StandingsTableViewCell: UITableViewCell {
         labelWL.text = "W-L"
         labelPct.text = "PCT"
         labelGb.text = "GB"
-        labelRuns.text = "+/-"
+        labelStrk.text = "STRK"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
