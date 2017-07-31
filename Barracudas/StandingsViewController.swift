@@ -36,7 +36,7 @@ class StandingsViewController: UIViewController {
             print("todo handle results")
             print(result)
             
-            // TODO load here presistent data and make an update request
+            // TODO load here presistent data and make an update request 
         }
     }
 

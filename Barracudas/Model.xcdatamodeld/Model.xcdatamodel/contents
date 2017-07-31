@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TeamsStandings" representedClassName=".TeamsStandings" syncable="YES">
+        <attribute name="gb" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="group" attributeType="String" syncable="YES"/>
+        <attribute name="league" attributeType="String" syncable="YES"/>
+        <attribute name="losses" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pct" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rank" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="round" attributeType="String" syncable="YES"/>
+        <attribute name="streak" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamname" attributeType="String" syncable="YES"/>
+        <attribute name="wins" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="TeamsStandings" positionX="-63" positionY="-18" width="128" height="195"/>
+    </elements>
+</model>

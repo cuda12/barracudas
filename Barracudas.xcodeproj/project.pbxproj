@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050E12331F1A293000318439 /* RostersTableViewController.swift */; };
 		05DCEC611F2512C40039EDA0 /* SBSFClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCEC601F2512C40039EDA0 /* SBSFClient.swift */; };
+		05E59A841F2B2A1900F58098 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05E59A821F2B2A1900F58098 /* Model.xcdatamodeld */; };
+		05E59A931F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E59A911F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift */; };
+		05E59A941F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E59A921F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift */; };
+		05E59A961F2B310C00F58098 /* SBSFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E59A951F2B310C00F58098 /* SBSFConstants.swift */; };
 		95060FCCBC81063EE099DA78 /* Pods_Barracudas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CDA768CE955E5764F000A4 /* Pods_Barracudas.framework */; };
 		A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23521F20FC1500E3ADAA /* Theme.swift */; };
 		A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23541F20FEDC00E3ADAA /* Convenience.swift */; };
@@ -34,6 +38,10 @@
 /* Begin PBXFileReference section */
 		050E12331F1A293000318439 /* RostersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RostersTableViewController.swift; sourceTree = "<group>"; };
 		05DCEC601F2512C40039EDA0 /* SBSFClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBSFClient.swift; sourceTree = "<group>"; };
+		05E59A831F2B2A1900F58098 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		05E59A911F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TeamsStandings+CoreDataClass.swift"; sourceTree = "<group>"; };
+		05E59A921F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TeamsStandings+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		05E59A951F2B310C00F58098 /* SBSFConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBSFConstants.swift; sourceTree = "<group>"; };
 		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A13C23561F22520000E3ADAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -114,8 +122,12 @@
 		A15EA0601F15217A00B8B310 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				05E59A911F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift */,
+				05E59A921F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift */,
 				A18352271F20A60A0087A717 /* TeamDetails.swift */,
 				05DCEC601F2512C40039EDA0 /* SBSFClient.swift */,
+				05E59A821F2B2A1900F58098 /* Model.xcdatamodeld */,
+				05E59A951F2B310C00F58098 /* SBSFConstants.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -295,11 +307,15 @@
 			files = (
 				A18352321F20D5840087A717 /* NotificationsTableViewCell.swift in Sources */,
 				A18352301F20D2670087A717 /* NotificationsTableViewController.swift in Sources */,
+				05E59A941F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift in Sources */,
 				A15EA04D1F1511B500B8B310 /* AppDelegate.swift in Sources */,
 				A18352201F2094840087A717 /* StandingsTableViewCell.swift in Sources */,
+				05E59A961F2B310C00F58098 /* SBSFConstants.swift in Sources */,
 				050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */,
+				05E59A841F2B2A1900F58098 /* Model.xcdatamodeld in Sources */,
 				A18352261F209F260087A717 /* RosterTeamTableViewController.swift in Sources */,
 				A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */,
+				05E59A931F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
 				05DCEC611F2512C40039EDA0 /* SBSFClient.swift in Sources */,
@@ -480,6 +496,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		05E59A821F2B2A1900F58098 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				05E59A831F2B2A1900F58098 /* Model.xcdatamodel */,
+			);
+			currentVersion = 05E59A831F2B2A1900F58098 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A15EA0411F1511B500B8B310 /* Project object */;
 }
