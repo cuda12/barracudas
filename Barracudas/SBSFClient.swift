@@ -10,6 +10,8 @@
 
 import Foundation
 import UIKit
+import CoreData
+
 
 // MARK: - SBSFClient
 
@@ -42,7 +44,7 @@ class SBSFClient: NSObject {
         // make the request
         let task = session.dataTask(with: request) { (data, response, error) in
             
-            // TODO prober handle of errors 
+            // TODO prober handle of errors and completion handlers
             
             // check error
             guard (error == nil) else {
@@ -78,44 +80,46 @@ class SBSFClient: NSObject {
     // MARK: Convinience Methods (TODO move separate extension?)
     
     func getStandings(_ completionHanlder: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
+
+        // TODO TBC if parameters are need
+        let parameters = [String: AnyObject]()
         
-        stack.performBackgroundBatchOperation { (backgroundContext) in
+        _ = self.taskForGETMethod(Methods.Standings, parameters: parameters, completionHandlerForGET: { (result, error) in
+            guard (error == nil) else {
+                print("error loading standings")
+                // TODO completion handler here
+                return
+            }
             
-            let parameters = [String: AnyObject]()
+            print("updating standings ---- ")
             
-            // TODO maybe do some postprocessing parsing here
-            _ = self.taskForGETMethod(Methods.Standings, parameters: parameters, completionHandlerForGET: { (result, error) in
-                guard (error == nil) else {
-                    print("error loading standings")
-                    // TODO completion handler here
-                    return
+            // remove previous loaded standings (in case a team switches league, the complete db is dropped an reloaded)
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TeamsStandings")
+            if let result = try? self.stack.context.fetch(fetchRequest) {
+                for object in result {
+                    self.stack.context.delete(object as! NSManagedObject)
                 }
-                
-                print("updating standings ---- ")
-                // remove previous loaded standings (in case a team switches league, the complete db is dropped an reloaded)
-                do {
-                    try self.stack.dropAllData()
-                } catch {
-                    print("error deleting all objects from db")
-                    // TODO abort here - completion handler
-                }
-                
-                // for each Barracudas team update the standings of its league from the downloaded data
-                for teamDetail in TeamDetails.allTeams {
-                    if let detailsPerLeague = result?[teamDetail.sbsfKey] as? [[String:AnyObject]] {
-                        
-                        // add records for each team in the league to the model (local database)
-                        for teamDetailsPerLeague in detailsPerLeague {
-                            _ = TeamsStandings(league: teamDetail.abbrTeamName, recordDetails: teamDetailsPerLeague, context: backgroundContext)
-                        }
+            }
+            
+            // for each Barracudas team update the standings of its league from the downloaded data
+            for teamDetail in TeamDetails.allTeams {
+                if let detailsPerLeague = result?[teamDetail.sbsfKey] as? [[String:AnyObject]] {
+                    
+                    // add records for each team in the league to the model (local database)
+                    for teamDetailsPerLeague in detailsPerLeague {
+                        _ = TeamsStandings(league: teamDetail.abbrTeamName, recordDetails: teamDetailsPerLeague, context: self.stack.context)
                     }
                 }
-                
-                // TODO completion handler here
-                print(" --- standings updated!")
-                
-            })
-        }
+            }
+            
+            // save downloaded data
+            self.stack.save()
+            
+            // TODO completion handler here
+            print(" --- standings updated!")
+            
+        })
+        
     }
     
     
