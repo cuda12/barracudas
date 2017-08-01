@@ -9,17 +9,17 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - SBSFClient
 
 class SBSFClient: NSObject {
     
     // MARK: Properties
-    
-    // shared session
+    let stack = (UIApplication.shared.delegate as! AppDelegate).stack
     var session = URLSession.shared
     
-    // TODO config
+    // TODO config ?
     
     
     // MARK: Initializers
@@ -30,7 +30,7 @@ class SBSFClient: NSObject {
     
     // MARK: GET
     
-    func taskForGETMethod(_ method: String, parameters: [String: AnyObject], completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionTask {
+    func taskForGETMethod(_ method: String, parameters: [String: AnyObject], completionHandlerForGET: @escaping (_ result: [String:AnyObject]?, _ error: NSError?) -> Void) -> URLSessionTask {
         
         // build url with parameters (e.g. filters)
         // TODO
@@ -79,22 +79,55 @@ class SBSFClient: NSObject {
     
     func getStandings(_ completionHanlder: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
         
-        let parameters = [String: AnyObject]()
-        
-        
-        // TODO maybe do some postprocessing parsing here
-        _ = taskForGETMethod(Methods.Standings, parameters: parameters, completionHandlerForGET: completionHanlder)
-        
+        stack.performBackgroundBatchOperation { (backgroundContext) in
+            
+            let parameters = [String: AnyObject]()
+            
+            // TODO maybe do some postprocessing parsing here
+            _ = self.taskForGETMethod(Methods.Standings, parameters: parameters, completionHandlerForGET: { (result, error) in
+                guard (error == nil) else {
+                    print("error loading standings")
+                    // TODO completion handler here
+                    return
+                }
+                
+                print("updating standings ---- ")
+                // remove previous loaded standings (in case a team switches league, the complete db is dropped an reloaded)
+                do {
+                    try self.stack.dropAllData()
+                } catch {
+                    print("error deleting all objects from db")
+                    // TODO abort here - completion handler
+                }
+                
+                // for each Barracudas team update the standings of its league from the downloaded data
+                for teamDetail in TeamDetails.allTeams {
+                    if let detailsPerLeague = result?[teamDetail.sbsfKey] as? [[String:AnyObject]] {
+                        
+                        // add records for each team in the league to the model (local database)
+                        for teamDetailsPerLeague in detailsPerLeague {
+                            _ = TeamsStandings(league: teamDetail.abbrTeamName, recordDetails: teamDetailsPerLeague, context: backgroundContext)
+                        }
+                    }
+                }
+                
+                // TODO completion handler here
+                print(" --- standings updated!")
+                
+            })
+        }
     }
     
     
     // MARK: Helpers
     
-    func convertJsonToDict(data: Data, withCompletionHandler completionHandler: (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    func convertJsonToDict(data: Data, withCompletionHandler completionHandler: (_ result: [String:AnyObject]?, _ error: NSError?) -> Void) {
         
-        var parsedResult: AnyObject! = nil
+        var parsedResult: [String:AnyObject]! = nil
         do {
-            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
+            let parsedResultData = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSArray
+            // Data dictionary is wrapped in an array with one element
+            parsedResult = parsedResultData[0] as! [String : AnyObject]
         } catch {
             let userInfo = [NSLocalizedDescriptionKey: "Could not parse the data as JSON"]
             completionHandler(nil, NSError(domain: "convertData", code: 1, userInfo: userInfo))

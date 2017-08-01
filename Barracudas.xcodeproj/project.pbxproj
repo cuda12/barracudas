@@ -26,6 +26,7 @@
 		A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EA05E1F15215300B8B310 /* NewsTableViewCell.swift */; };
 		A15EA0651F1521E700B8B310 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EA0641F1521E700B8B310 /* NewsTableViewController.swift */; };
 		A15EA0671F15220800B8B310 /* NewsArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EA0661F15220800B8B310 /* NewsArticleViewController.swift */; };
+		A16C6EBD1F2F9964007C805E /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16C6EBC1F2F9964007C805E /* CoreDataStack.swift */; };
 		A18352201F2094840087A717 /* StandingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183521F1F2094840087A717 /* StandingsTableViewCell.swift */; };
 		A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18352231F2095ED0087A717 /* StandingsViewController.swift */; };
 		A18352261F209F260087A717 /* RosterTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18352251F209F260087A717 /* RosterTeamTableViewController.swift */; };
@@ -56,6 +57,7 @@
 		A15EA05E1F15215300B8B310 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		A15EA0641F1521E700B8B310 /* NewsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		A15EA0661F15220800B8B310 /* NewsArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticleViewController.swift; sourceTree = "<group>"; };
+		A16C6EBC1F2F9964007C805E /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		A183521F1F2094840087A717 /* StandingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsTableViewCell.swift; sourceTree = "<group>"; };
 		A18352231F2095ED0087A717 /* StandingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsViewController.swift; sourceTree = "<group>"; };
 		A18352251F209F260087A717 /* RosterTeamTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterTeamTableViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		A15EA0601F15217A00B8B310 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A16C6EBC1F2F9964007C805E /* CoreDataStack.swift */,
 				05E59A911F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift */,
 				05E59A921F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift */,
 				A18352271F20A60A0087A717 /* TeamDetails.swift */,
@@ -322,6 +325,7 @@
 				A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */,
 				A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */,
 				A14CA48C1F20EB1F00DB0366 /* MoreTableViewController.swift in Sources */,
+				A16C6EBD1F2F9964007C805E /* CoreDataStack.swift in Sources */,
 				A15EA0671F15220800B8B310 /* NewsArticleViewController.swift in Sources */,
 				A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */,
 				A18352281F20A60A0087A717 /* TeamDetails.swift in Sources */,

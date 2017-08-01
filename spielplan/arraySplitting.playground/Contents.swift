@@ -15,6 +15,8 @@ let team6 = ["team": "eee", "wins": 100, "group": "west"] as [String: AnyObject]
 let standings = [team1, team2, team3, team4, team5, team6]
 print(standings)
 
+print(team1.count)
+
 // split with knowing group names
 
 let standingsWest = standings.split { (team) -> Bool in
@@ -95,3 +97,24 @@ let standingsNLA = Standings(leagueName: "NLA", teams: standings)
 print(standingsNLA.byGroups[0].teamsRanked)
 print(standingsNLA.byGroups.count)
 print(standingsNLA.byGroups[1].teams.count)
+
+
+
+// MARK: string splitting
+
+let streakStringOrg = "Won 12"
+let streakStringOrg2 = "Lost 12"
+
+func convertStreakToAbbr(streak: String) -> String {
+    let strComp = streak.components(separatedBy: " ")
+    return strComp[0].substring(to: streak.index(streak.startIndex, offsetBy: 1)) + strComp[1]
+}
+
+print(convertStreakToAbbr(streak: streakStringOrg) + " / " + convertStreakToAbbr(streak: streakStringOrg2))
+
+
+
+
+
+
+
