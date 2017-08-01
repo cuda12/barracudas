@@ -14,6 +14,8 @@
 		05E59A941F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E59A921F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift */; };
 		05E59A961F2B310C00F58098 /* SBSFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E59A951F2B310C00F58098 /* SBSFConstants.swift */; };
 		95060FCCBC81063EE099DA78 /* Pods_Barracudas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CDA768CE955E5764F000A4 /* Pods_Barracudas.framework */; };
+		A104658F1F30C58800CC131D /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104658E1F30C58800CC131D /* FirebaseClient.swift */; };
+		A10465911F30CA9C00CC131D /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10465901F30CA9C00CC131D /* NewsArticle.swift */; };
 		A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23521F20FC1500E3ADAA /* Theme.swift */; };
 		A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23541F20FEDC00E3ADAA /* Convenience.swift */; };
 		A13C23571F22520000E3ADAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13C23561F22520000E3ADAA /* GoogleService-Info.plist */; };
@@ -43,6 +45,8 @@
 		05E59A911F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TeamsStandings+CoreDataClass.swift"; sourceTree = "<group>"; };
 		05E59A921F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TeamsStandings+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		05E59A951F2B310C00F58098 /* SBSFConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBSFConstants.swift; sourceTree = "<group>"; };
+		A104658E1F30C58800CC131D /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
+		A10465901F30CA9C00CC131D /* NewsArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
 		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A13C23561F22520000E3ADAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				05DCEC601F2512C40039EDA0 /* SBSFClient.swift */,
 				05E59A821F2B2A1900F58098 /* Model.xcdatamodeld */,
 				05E59A951F2B310C00F58098 /* SBSFConstants.swift */,
+				A104658E1F30C58800CC131D /* FirebaseClient.swift */,
+				A10465901F30CA9C00CC131D /* NewsArticle.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -318,8 +324,10 @@
 				05E59A841F2B2A1900F58098 /* Model.xcdatamodeld in Sources */,
 				A18352261F209F260087A717 /* RosterTeamTableViewController.swift in Sources */,
 				A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */,
+				A104658F1F30C58800CC131D /* FirebaseClient.swift in Sources */,
 				05E59A931F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
+				A10465911F30CA9C00CC131D /* NewsArticle.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
 				05DCEC611F2512C40039EDA0 /* SBSFClient.swift in Sources */,
 				A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */,

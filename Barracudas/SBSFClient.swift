@@ -103,7 +103,7 @@ class SBSFClient: NSObject {
             
             // for each Barracudas team update the standings of its league from the downloaded data
             for teamDetail in TeamDetails.allTeams {
-                if let detailsPerLeague = result?[teamDetail.sbsfKey] as? [[String:AnyObject]] {
+                if let detailsPerLeague = result?[teamDetail.dbKey] as? [[String:AnyObject]] {
                     
                     // add records for each team in the league to the model (local database)
                     for teamDetailsPerLeague in detailsPerLeague {

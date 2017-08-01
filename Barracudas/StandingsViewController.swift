@@ -73,7 +73,7 @@ class StandingsViewController: UIViewController {
             print(result ?? "default values - debugging results is nil")
             
             // TODO load here presistent data and make an update request 
-            
+            // TODO credit to spielplan.ch - update last update time stamp, tbc busy indicator?
         }
     }
 
@@ -87,9 +87,6 @@ class StandingsViewController: UIViewController {
     
     @IBAction func changeLeagueSelection(_ sender: Any) {
         print("new segment control index \(segmentLeagueSelection.selectedSegmentIndex)")
-        
-        //initializeFetchedResultscontroller(withLeagueFilter: TeamDetails.allTeams[segmentLeagueSelection.selectedSegmentIndex].sbsfKey)
-        
         
         let pred = NSPredicate(format: "league = %@", argumentArray: [TeamDetails.allTeams[segmentLeagueSelection.selectedSegmentIndex].abbrTeamName])
         fetchedResultsController.fetchRequest.predicate = pred

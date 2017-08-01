@@ -10,14 +10,19 @@ import UIKit
 
 class NewsTableViewController: UITableViewController {
 
+    // MARK: Properties 
+    
+    let maxNumberOfArticles = 50
+    var newsArticles: [NewsArticle] = []
+    
+    
+    // MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // add firebase listener to news table
+        addFirebaseListener()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,21 +33,41 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return newsArticles.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableViewCell
         
-        // Configure the cell...
-        cell.ArticleCategory.text = "NLA"
-        cell.ArticleTitle.text = "Cudas beat the Challis in a nailbiter"
-        cell.ArticlePreview.text = "some long text"
-        cell.ArticleTimestamp.text = "aru | today, 12:12"
-        cell.ArticleImage.image = UIImage(named: "5947f7a1c009d")
-
+        // get the current article 
+        let article = newsArticles[indexPath.row]
+        
+        // build and configure the cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableViewCell
+        cell.ArticleCategory.text = article.category
+        cell.ArticleTitle.text = article.heading
+        cell.ArticlePreview.text = article.text
+        cell.ArticleTimestamp.text = article.writtenByOnDate
+        cell.ArticleImage.image = UIImage(named: "placeholderImg")
+        // TODO download image
+        
+        // download image if available
+        if let articleImgUrl = article.imgUrl {
+            FirebaseClient.sharedInstance.downloadAnImage(imageUrl: articleImgUrl, completionHandler: { (image, error) in
+                guard error == nil else {
+                    print("TODO error handling")
+                    return
+                }
+                
+                // else if the cell is still on screen update its image
+                if cell == tableView.cellForRow(at: indexPath) {
+                    self.performUIUpdatesOnMain {
+                        cell.ArticleImage.image = image
+                    }
+                }
+            })
+        }
+        
         return cell
     }
     
@@ -50,30 +75,28 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Table View methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // get selected article
-        // TODO
-        
+    
         // build the article view controller
         let articleViewController: NewsArticleViewController
         articleViewController = storyboard?.instantiateViewController(withIdentifier: "ArticleViewController") as! NewsArticleViewController
         
-        // TODO inject article here
+        // inject selected article
+        articleViewController.newsArticle = newsArticles[indexPath.row]
         
         self.navigationController!.pushViewController(articleViewController, animated: true)
     }
-    
-    
-    
-    /*
      
      
-    // MARK: - Navigation
+    // MARK: - Helpers
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func addFirebaseListener() {
+        // add a listener to firebase database news table to download articles
+        FirebaseClient.sharedInstance.registerNewsListener(toObserve: .childAdded, limit: maxNumberOfArticles) { (article) in
+            // add most recent article at the top
+            self.newsArticles.insert(article, at: 0)
+            self.tableView.reloadData()
+        }
     }
-    */
+ 
 
 }

@@ -113,7 +113,7 @@ func convertStreakToAbbr(streak: String) -> String {
 print(convertStreakToAbbr(streak: streakStringOrg) + " / " + convertStreakToAbbr(streak: streakStringOrg2))
 
 
-
+Date().timeIntervalSince1970
 
 
 
