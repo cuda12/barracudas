@@ -27,6 +27,9 @@ struct NewsArticle {
         }
     }
     
+    var downloadedImg: UIImage?
+    
+    
     // MARK: Initializer method
     
     init(withSnapshot snapshot: DataSnapshot) {
@@ -43,6 +46,9 @@ struct NewsArticle {
         imgUrl = dataDict[FirebaseClient.Constants.NewsResponseKeys.ImageUrl] as? String ?? "noImageUrl"
         creationDateSince1970 = (dataDict[FirebaseClient.Constants.NewsResponseKeys.Timestamp] as? Double)!
         postedBy = dataDict[FirebaseClient.Constants.NewsResponseKeys.PostedBy] as? String ?? "bar"
+        
+        // init downloadedImg to nil
+        downloadedImg = nil
     }
 }
 

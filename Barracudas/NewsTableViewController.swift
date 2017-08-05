@@ -49,7 +49,6 @@ class NewsTableViewController: UITableViewController {
         cell.ArticlePreview.text = article.text
         cell.ArticleTimestamp.text = article.writtenByOnDate
         cell.ArticleImage.image = UIImage(named: "placeholderImg")
-        // TODO download image
         
         // download image if available
         if let articleImgUrl = article.imgUrl {
@@ -65,6 +64,9 @@ class NewsTableViewController: UITableViewController {
                         cell.ArticleImage.image = image
                     }
                 }
+                
+                // store the downloaded image in the articles array (for detail view of articles)
+                self.newsArticles[indexPath.row].downloadedImg = image
             })
         }
         

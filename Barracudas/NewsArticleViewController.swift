@@ -26,16 +26,28 @@ class NewsArticleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        // TODO load actual content
+        // load content of article
         articleSection.text = newsArticle.category
         articleTitle.text = newsArticle.heading
         articleDate.text = newsArticle.writtenByOnDate
         articleText.text = newsArticle.text
         
-        // TODO image
+        // if image was already downloaded display it, otherwise show a place holder image and download the image
+        if let downloadedImg = newsArticle.downloadedImg {
+            articleImage.image = downloadedImg
+        } else {
+            articleImage.image = UIImage(named: "placeholderImg")
+            if let imageUrl = newsArticle.imgUrl {
+                FirebaseClient.sharedInstance.downloadAnImage(imageUrl: imageUrl, completionHandler: { (image, error) in
+                    if let image = image {
+                        self.performUIUpdatesOnMain {
+                            self.articleImage.image = image
+                        }
+                    }
+                })
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
