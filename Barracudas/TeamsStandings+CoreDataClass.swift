@@ -33,8 +33,6 @@ public class TeamsStandings: NSManagedObject {
             self.streak = convertStreakToAbbr(streak: recordDetails[SBSFConstants.Standings.Streak] as? String ?? "Won 0")
             self.group = recordDetails[SBSFConstants.Standings.Group] as? String ?? ""
             self.round = recordDetails[SBSFConstants.Standings.Round] as? String ?? "VR"
-            
-            // TODO convert streak into short hand form
         } else {
             fatalError("Unable to find Entity name!")
         }

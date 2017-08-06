@@ -35,7 +35,6 @@ class NewsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsArticles.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -64,6 +63,7 @@ class NewsTableViewController: UITableViewController {
                         cell.ArticleImage.image = image
                     }
                 }
+                
                 
                 // store the downloaded image in the articles array (for detail view of articles)
                 self.newsArticles[indexPath.row].downloadedImg = image
@@ -99,6 +99,4 @@ class NewsTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
- 
-
 }

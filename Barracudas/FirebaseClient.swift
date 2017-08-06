@@ -80,6 +80,23 @@ class FirebaseClient {
             completionHandler(NewsArticle(withSnapshot: snapshot))
         })
     }
+    
+    func registerRosterListener(toObserve eventAction: DataEventType, forTeam team: String, completionHandler: @escaping (_ player: PlayersDetails) -> Void) {
+        // add a listener to the rosters table for the given action
+        
+        _refHandle = ref.child(Constants.FirebaseTables.Rosters + "/" + team).observe(eventAction, with: { (snapshot: DataSnapshot) in
+            completionHandler(PlayersDetails(withSnapshot: snapshot))
+        })
+    }
+    
+    func registerGamedayListener(toObserve eventAction: DataEventType, forDate dateString: String, completionHandler: @escaping( _ game: GameDetails) -> Void) {
+        // add a listener to the gameday table for the given action and day
+        
+        _refHandle = ref.child(Constants.FirebaseTables.Gamedays + "/" + dateString).observe(eventAction, with: { (snapshot: DataSnapshot) in
+            completionHandler(GameDetails(withSnapshot: snapshot))
+        })
+    }
+    
 
     func registerAuthListener(completionHandler: @escaping (_ isSignedIn: Bool, _ user: User?) -> Void) {
         // add a listener to the auth handle
@@ -149,6 +166,8 @@ extension FirebaseClient {
         
         struct FirebaseTables {
             static let News = "news"
+            static let Rosters = "rosters"
+            static let Gamedays = "gamedays"
         }
         
         
@@ -164,10 +183,40 @@ extension FirebaseClient {
         }
         
         
+        // MARK: Roster Table Keys
+        
+        struct RosterResponseKeys {
+            static let FirstName = "first_name"
+            static let LastName = "last_name"
+            static let Number = "number"
+            static let Position = "position"
+            static let AdditionalPosition = "additional_position"
+            static let ImageUrl = "image_url"
+        }
+        
+        
+        // MARK: Games Table Keys
+        
+        struct GameResponseKeys {
+            static let Inning = "inning"
+            static let League = "league"
+            static let Runners = "runners"
+            static let Score = "score"
+            static let State = "state"
+            static let Teams = "teams"
+            static let Time = "time"
+        }
+        
+        struct GameStates {
+            static let live = "live"
+            static let notStarted = "notStarted"
+            static let final = "final"
+        }
+        
         // MARK: Storage subfolders
         
         struct StorageDirectory {
-            static let newsImgs = "news_images/"
+            static let newsImgs = "news_images/"       // TODO check usage??
             static let teamIcons = "team_icons/"     // TODO if no images found locally
         }
         
