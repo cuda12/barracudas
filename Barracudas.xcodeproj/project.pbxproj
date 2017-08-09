@@ -16,6 +16,9 @@
 		95060FCCBC81063EE099DA78 /* Pods_Barracudas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CDA768CE955E5764F000A4 /* Pods_Barracudas.framework */; };
 		A104658F1F30C58800CC131D /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104658E1F30C58800CC131D /* FirebaseClient.swift */; };
 		A10465911F30CA9C00CC131D /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10465901F30CA9C00CC131D /* NewsArticle.swift */; };
+		A1375AB71F3B923C0076ED50 /* GameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB41F3B923C0076ED50 /* GameDetails.swift */; };
+		A1375AB81F3B923C0076ED50 /* PlayersDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB51F3B923C0076ED50 /* PlayersDetails.swift */; };
+		A1375AB91F3B923C0076ED50 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */; };
 		A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23521F20FC1500E3ADAA /* Theme.swift */; };
 		A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23541F20FEDC00E3ADAA /* Convenience.swift */; };
 		A13C23571F22520000E3ADAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13C23561F22520000E3ADAA /* GoogleService-Info.plist */; };
@@ -47,6 +50,9 @@
 		05E59A951F2B310C00F58098 /* SBSFConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBSFConstants.swift; sourceTree = "<group>"; };
 		A104658E1F30C58800CC131D /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		A10465901F30CA9C00CC131D /* NewsArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
+		A1375AB41F3B923C0076ED50 /* GameDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetails.swift; sourceTree = "<group>"; };
+		A1375AB51F3B923C0076ED50 /* PlayersDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersDetails.swift; sourceTree = "<group>"; };
+		A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A13C23561F22520000E3ADAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 		A15EA0601F15217A00B8B310 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A1375AB41F3B923C0076ED50 /* GameDetails.swift */,
+				A1375AB51F3B923C0076ED50 /* PlayersDetails.swift */,
 				A16C6EBC1F2F9964007C805E /* CoreDataStack.swift */,
 				05E59A911F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift */,
 				05E59A921F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift */,
@@ -167,6 +175,7 @@
 				A183521F1F2094840087A717 /* StandingsTableViewCell.swift */,
 				A18352311F20D5840087A717 /* NotificationsTableViewCell.swift */,
 				A13C23521F20FC1500E3ADAA /* Theme.swift */,
+				A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -329,7 +338,9 @@
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A10465911F30CA9C00CC131D /* NewsArticle.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
+				A1375AB71F3B923C0076ED50 /* GameDetails.swift in Sources */,
 				05DCEC611F2512C40039EDA0 /* SBSFClient.swift in Sources */,
+				A1375AB81F3B923C0076ED50 /* PlayersDetails.swift in Sources */,
 				A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */,
 				A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */,
 				A14CA48C1F20EB1F00DB0366 /* MoreTableViewController.swift in Sources */,
@@ -338,6 +349,7 @@
 				A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */,
 				A18352281F20A60A0087A717 /* TeamDetails.swift in Sources */,
 				A15EA0651F1521E700B8B310 /* NewsTableViewController.swift in Sources */,
+				A1375AB91F3B923C0076ED50 /* ScheduleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

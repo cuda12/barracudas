@@ -140,7 +140,10 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.labelScoreAway.isHidden = true
             }
             
-            // TODO icons
+            // TODO team icons
+            //    - 1. prio stored on device
+            //    - 2. prio download from firebase
+            //    - 3. prio default logo
             
             return cell
         }
