@@ -19,6 +19,7 @@
 		A1375AB71F3B923C0076ED50 /* GameDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB41F3B923C0076ED50 /* GameDetails.swift */; };
 		A1375AB81F3B923C0076ED50 /* PlayersDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB51F3B923C0076ED50 /* PlayersDetails.swift */; };
 		A1375AB91F3B923C0076ED50 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */; };
+		A1375ABB1F3B945F0076ED50 /* SchedulePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375ABA1F3B945F0076ED50 /* SchedulePageViewController.swift */; };
 		A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23521F20FC1500E3ADAA /* Theme.swift */; };
 		A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23541F20FEDC00E3ADAA /* Convenience.swift */; };
 		A13C23571F22520000E3ADAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13C23561F22520000E3ADAA /* GoogleService-Info.plist */; };
@@ -53,6 +54,7 @@
 		A1375AB41F3B923C0076ED50 /* GameDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetails.swift; sourceTree = "<group>"; };
 		A1375AB51F3B923C0076ED50 /* PlayersDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersDetails.swift; sourceTree = "<group>"; };
 		A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		A1375ABA1F3B945F0076ED50 /* SchedulePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePageViewController.swift; sourceTree = "<group>"; };
 		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A13C23561F22520000E3ADAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				A15EA0641F1521E700B8B310 /* NewsTableViewController.swift */,
 				A15EA0661F15220800B8B310 /* NewsArticleViewController.swift */,
 				A18352231F2095ED0087A717 /* StandingsViewController.swift */,
+				A1375ABA1F3B945F0076ED50 /* SchedulePageViewController.swift */,
 				A183522D1F20B8D80087A717 /* ScheduleViewController.swift */,
 				A183522F1F20D2670087A717 /* NotificationsTableViewController.swift */,
 				A14CA4891F20E72900DB0366 /* ContactTableViewController.swift */,
@@ -335,6 +338,7 @@
 				A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */,
 				A104658F1F30C58800CC131D /* FirebaseClient.swift in Sources */,
 				05E59A931F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift in Sources */,
+				A1375ABB1F3B945F0076ED50 /* SchedulePageViewController.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A10465911F30CA9C00CC131D /* NewsArticle.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,

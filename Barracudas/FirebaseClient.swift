@@ -112,6 +112,19 @@ class FirebaseClient {
         })
     }
     
+    func registerGamedaysSingleObservation(completionHandler: @escaping ( _ dates: [String]?) -> Void) {
+        // retrieve array of all gamedays once
+        
+        ref.child(Constants.FirebaseTables.GamedaysAll).observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot)
+            if let values = snapshot.value as? [String] {
+                completionHandler(values)
+            } else {
+                completionHandler(nil)
+            }
+        })
+    }
+    
     
     // MARK: download images
     
@@ -168,6 +181,7 @@ extension FirebaseClient {
             static let News = "news"
             static let Rosters = "rosters"
             static let Gamedays = "gamedays"
+            static let GamedaysAll = "all_gamedays"
         }
         
         
@@ -211,6 +225,10 @@ extension FirebaseClient {
             static let live = "live"
             static let notStarted = "notStarted"
             static let final = "final"
+        }
+        
+        struct GameDays {
+            static let DateFormat = "yyyyMMdd"
         }
         
         // MARK: Storage subfolders

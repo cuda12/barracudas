@@ -62,7 +62,7 @@ class RosterTeamTableViewController: UITableViewController {
         
         cell.textLabel?.text = heading
         cell.detailTextLabel?.text = playerDetails.position
-        cell.imageView?.image = UIImage(named: "player")        // TODO placeholderImgPlayer
+        cell.imageView?.image = UIImage(named: "placeholderPlayerImg")
 
         // download players portrait image
         if let imageUrl = playerDetails.imgUrl {

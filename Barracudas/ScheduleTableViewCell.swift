@@ -25,6 +25,9 @@ class ScheduleTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        // prepared for version 2.0 (first release dont show any details)
+        buttonLiveTicker.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

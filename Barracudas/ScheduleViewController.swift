@@ -14,10 +14,17 @@ class ScheduleViewController: UIViewController {
     
     var LeaguesAbbr: [String] = []
     var GamesDetails: [[GameDetails]] = []
+
+    var pageIndex: Int!
+    var pageViewController: SchedulePageViewController?
+    var selectedGameDay: String?
     
     
     // MARK: Outlets
+    
     @IBOutlet weak var gameDayTable: UITableView!
+    @IBOutlet weak var headerLable: UILabel!
+    
     
     // MARK: Life cycle
     
@@ -29,6 +36,9 @@ class ScheduleViewController: UIViewController {
         
         // add a listeners to firebase 
         addFirebaseListener()
+        
+        // add header title 
+        headerLable.text = convertToUserfriendlyDateStr(fromDateString: selectedGameDay)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,13 +47,25 @@ class ScheduleViewController: UIViewController {
     }
     
     
-    // MARK: - Helpers
+    // MARK: Actions
+    
+    @IBAction func nextGameDay(_ sender: Any) {
+        if let pageViewController = pageViewController {
+            pageViewController.showNextPage()
+        }
+    }
+    
+    @IBAction func prevGameDay(_ sender: Any) {
+        if let pageViewController = pageViewController {
+            pageViewController.showPrevPage()
+        }
+    }
+    
+    // MARK: Helpers
     
     func addFirebaseListener() {
         // add a listener to firebase database gamedays table to download the games
-        
-        // TODO day depending
-        FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childAdded, forDate: "20170806", completionHandler: { (game) in
+        FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childAdded, forDate: selectedGameDay!, completionHandler: { (game) in
             // add game details to array
             if let leagueIndex = self.LeaguesAbbr.index(of: game.league) {
                 self.GamesDetails[leagueIndex].append(game)
@@ -51,9 +73,8 @@ class ScheduleViewController: UIViewController {
             }
         })
         
-        // TODO day depending
         // add a listener to track game changes
-        FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childChanged, forDate: "20170806", completionHandler: { (game) in
+        FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childChanged, forDate: selectedGameDay!, completionHandler: { (game) in
             print(game)
             if let leagueIndex = self.LeaguesAbbr.index(of: game.league) {
                 if let index = self.GamesDetails[leagueIndex].index(where: { $0.snapshotKey == game.snapshotKey }) {
@@ -69,6 +90,24 @@ class ScheduleViewController: UIViewController {
         for teamDetail in TeamDetails.allTeams {
             LeaguesAbbr.append(teamDetail.abbrTeamName)
             GamesDetails.append([])
+        }
+    }
+    
+    func convertToUserfriendlyDateStr(fromDateString dateStr: String?) -> String? {
+        if let dateStr = dateStr {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = FirebaseClient.Constants.GameDays.DateFormat
+            
+            let date = dateFormatter.date(from: dateStr)
+            
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            dateFormatter.doesRelativeDateFormatting = true
+            dateFormatter.locale = Locale.current
+            
+            return dateFormatter.string(from: date!)
+        } else {
+            return nil
         }
     }
 }
@@ -127,14 +166,11 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
             switch game.state {
             case FirebaseClient.Constants.GameStates.live:
                 cell.labelInning.text = game.inning!
-                cell.buttonLiveTicker.isHidden = false
             case FirebaseClient.Constants.GameStates.final:
                 cell.labelInning.text = game.inning!
-                cell.buttonLiveTicker.isHidden = false
                 cell.imageRunners.isHidden = true
             default:
                 cell.labelInning.text = game.time
-                cell.buttonLiveTicker.isHidden = true
                 cell.imageRunners.isHidden = true
                 cell.labelScoreHome.isHidden = true
                 cell.labelScoreAway.isHidden = true
