@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bases111.png",
+      "filename" : "teamIcon_FLY.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bases111@2x.png",
+      "filename" : "teamIcon_FLY@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bases111@3x.png",
+      "filename" : "teamIcon_FLY@3x.png",
       "scale" : "3x"
     }
   ],

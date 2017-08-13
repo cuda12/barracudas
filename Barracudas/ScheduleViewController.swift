@@ -156,9 +156,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             if let runners = game.runners {
-                print(String(format: "bases%03d.jpg", runners))
-                // TODO add icons
-                cell.imageRunners.image = UIImage(named: "bases111")
+                cell.imageRunners.image = UIImage(named: String(format: "bases%03d", runners))
             } else {
                 cell.imageRunners.image = nil
             }
@@ -180,6 +178,12 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
             //    - 1. prio stored on device
             //    - 2. prio download from firebase
             //    - 3. prio default logo
+            if let iconAway = UIImage(named: "teamIcon_"+game.teams[0]) {
+                cell.iconAway.image = iconAway
+            }
+            if let iconHome = UIImage(named: "teamIcon_"+game.teams[1]) {
+                cell.iconHome.image = iconHome
+            }
             
             return cell
         }

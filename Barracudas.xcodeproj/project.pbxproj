@@ -20,6 +20,7 @@
 		A1375AB81F3B923C0076ED50 /* PlayersDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB51F3B923C0076ED50 /* PlayersDetails.swift */; };
 		A1375AB91F3B923C0076ED50 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */; };
 		A1375ABB1F3B945F0076ED50 /* SchedulePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375ABA1F3B945F0076ED50 /* SchedulePageViewController.swift */; };
+		A1375ABD1F409B4C0076ED50 /* LiveScoringTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375ABC1F409B4C0076ED50 /* LiveScoringTableViewController.swift */; };
 		A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23521F20FC1500E3ADAA /* Theme.swift */; };
 		A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23541F20FEDC00E3ADAA /* Convenience.swift */; };
 		A13C23571F22520000E3ADAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13C23561F22520000E3ADAA /* GoogleService-Info.plist */; };
@@ -55,6 +56,7 @@
 		A1375AB51F3B923C0076ED50 /* PlayersDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersDetails.swift; sourceTree = "<group>"; };
 		A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		A1375ABA1F3B945F0076ED50 /* SchedulePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePageViewController.swift; sourceTree = "<group>"; };
+		A1375ABC1F409B4C0076ED50 /* LiveScoringTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringTableViewController.swift; sourceTree = "<group>"; };
 		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A13C23561F22520000E3ADAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				A183522F1F20D2670087A717 /* NotificationsTableViewController.swift */,
 				A14CA4891F20E72900DB0366 /* ContactTableViewController.swift */,
 				A14CA48B1F20EB1F00DB0366 /* MoreTableViewController.swift */,
+				A1375ABC1F409B4C0076ED50 /* LiveScoringTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				05E59A961F2B310C00F58098 /* SBSFConstants.swift in Sources */,
 				050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */,
 				05E59A841F2B2A1900F58098 /* Model.xcdatamodeld in Sources */,
+				A1375ABD1F409B4C0076ED50 /* LiveScoringTableViewController.swift in Sources */,
 				A18352261F209F260087A717 /* RosterTeamTableViewController.swift in Sources */,
 				A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */,
 				A104658F1F30C58800CC131D /* FirebaseClient.swift in Sources */,
