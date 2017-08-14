@@ -145,45 +145,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleGamesCell", for: indexPath) as! ScheduleTableViewCell
             
             // add current game details to cell
-            let game = GamesDetails[indexPath.section][indexPath.row]
-            
-            cell.labelAway.text = game.teams[0]
-            cell.labelHome.text = game.teams[1]
-            
-            if let score = game.score {
-                cell.labelScoreAway.text = "\(score[0])"
-                cell.labelScoreHome.text = "\(score[1])"
-            }
-            
-            if let runners = game.runners {
-                cell.imageRunners.image = UIImage(named: String(format: "bases%03d", runners))
-            } else {
-                cell.imageRunners.image = nil
-            }
-            
-            switch game.state {
-            case FirebaseClient.Constants.GameStates.live:
-                cell.labelInning.text = game.inning!
-            case FirebaseClient.Constants.GameStates.final:
-                cell.labelInning.text = game.inning!
-                cell.imageRunners.isHidden = true
-            default:
-                cell.labelInning.text = game.time
-                cell.imageRunners.isHidden = true
-                cell.labelScoreHome.isHidden = true
-                cell.labelScoreAway.isHidden = true
-            }
-            
-            // TODO team icons
-            //    - 1. prio stored on device
-            //    - 2. prio download from firebase
-            //    - 3. prio default logo
-            if let iconAway = UIImage(named: "teamIcon_"+game.teams[0]) {
-                cell.iconAway.image = iconAway
-            }
-            if let iconHome = UIImage(named: "teamIcon_"+game.teams[1]) {
-                cell.iconHome.image = iconHome
-            }
+            cell.updateWithGameDetails(GamesDetails[indexPath.section][indexPath.row])
             
             return cell
         }

@@ -21,6 +21,7 @@
 		A1375AB91F3B923C0076ED50 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */; };
 		A1375ABB1F3B945F0076ED50 /* SchedulePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375ABA1F3B945F0076ED50 /* SchedulePageViewController.swift */; };
 		A1375ABD1F409B4C0076ED50 /* LiveScoringTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1375ABC1F409B4C0076ED50 /* LiveScoringTableViewController.swift */; };
+		A1375AC11F409EC40076ED50 /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1375AC01F409EC40076ED50 /* ScheduleCell.xib */; };
 		A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23521F20FC1500E3ADAA /* Theme.swift */; };
 		A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13C23541F20FEDC00E3ADAA /* Convenience.swift */; };
 		A13C23571F22520000E3ADAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A13C23561F22520000E3ADAA /* GoogleService-Info.plist */; };
@@ -41,6 +42,10 @@
 		A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183522D1F20B8D80087A717 /* ScheduleViewController.swift */; };
 		A18352301F20D2670087A717 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A183522F1F20D2670087A717 /* NotificationsTableViewController.swift */; };
 		A18352321F20D5840087A717 /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18352311F20D5840087A717 /* NotificationsTableViewCell.swift */; };
+		A19E90471F40F615000D59A0 /* LiveGamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19E90461F40F615000D59A0 /* LiveGamesTableViewController.swift */; };
+		A19E90491F410079000D59A0 /* LiveScoringInningsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19E90481F410079000D59A0 /* LiveScoringInningsTableViewCell.swift */; };
+		A19E904B1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19E904A1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift */; };
+		A19E904D1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19E904C1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +62,7 @@
 		A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		A1375ABA1F3B945F0076ED50 /* SchedulePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePageViewController.swift; sourceTree = "<group>"; };
 		A1375ABC1F409B4C0076ED50 /* LiveScoringTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringTableViewController.swift; sourceTree = "<group>"; };
+		A1375AC01F409EC40076ED50 /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
 		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A13C23561F22520000E3ADAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -79,6 +85,10 @@
 		A183522D1F20B8D80087A717 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		A183522F1F20D2670087A717 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		A18352311F20D5840087A717 /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
+		A19E90461F40F615000D59A0 /* LiveGamesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGamesTableViewController.swift; sourceTree = "<group>"; };
+		A19E90481F410079000D59A0 /* LiveScoringInningsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringInningsTableViewCell.swift; sourceTree = "<group>"; };
+		A19E904A1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringScoreTableViewCell.swift; sourceTree = "<group>"; };
+		A19E904C1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringSetRunnersTableViewCell.swift; sourceTree = "<group>"; };
 		CB2391AFFD19A3283037472C /* Pods-Barracudas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barracudas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Barracudas/Pods-Barracudas.debug.xcconfig"; sourceTree = "<group>"; };
 		DACCF0D756B3E667570A9C8D /* Pods-Barracudas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barracudas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Barracudas/Pods-Barracudas.release.xcconfig"; sourceTree = "<group>"; };
 		F9CDA768CE955E5764F000A4 /* Pods_Barracudas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barracudas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +177,7 @@
 				A14CA4891F20E72900DB0366 /* ContactTableViewController.swift */,
 				A14CA48B1F20EB1F00DB0366 /* MoreTableViewController.swift */,
 				A1375ABC1F409B4C0076ED50 /* LiveScoringTableViewController.swift */,
+				A19E90461F40F615000D59A0 /* LiveGamesTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -177,11 +188,15 @@
 				A15EA0501F1511B500B8B310 /* Main.storyboard */,
 				A15EA0531F1511B500B8B310 /* Assets.xcassets */,
 				A15EA0551F1511B500B8B310 /* LaunchScreen.storyboard */,
+				A1375AC01F409EC40076ED50 /* ScheduleCell.xib */,
 				A15EA05E1F15215300B8B310 /* NewsTableViewCell.swift */,
 				A183521F1F2094840087A717 /* StandingsTableViewCell.swift */,
 				A18352311F20D5840087A717 /* NotificationsTableViewCell.swift */,
 				A13C23521F20FC1500E3ADAA /* Theme.swift */,
 				A1375AB61F3B923C0076ED50 /* ScheduleTableViewCell.swift */,
+				A19E90481F410079000D59A0 /* LiveScoringInningsTableViewCell.swift */,
+				A19E904A1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift */,
+				A19E904C1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -269,6 +284,7 @@
 			files = (
 				A15EA0571F1511B500B8B310 /* LaunchScreen.storyboard in Resources */,
 				A13C23571F22520000E3ADAA /* GoogleService-Info.plist in Resources */,
+				A1375AC11F409EC40076ED50 /* ScheduleCell.xib in Resources */,
 				A15EA0541F1511B500B8B310 /* Assets.xcassets in Resources */,
 				A15EA0521F1511B500B8B310 /* Main.storyboard in Resources */,
 			);
@@ -334,6 +350,7 @@
 				05E59A941F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift in Sources */,
 				A15EA04D1F1511B500B8B310 /* AppDelegate.swift in Sources */,
 				A18352201F2094840087A717 /* StandingsTableViewCell.swift in Sources */,
+				A19E90491F410079000D59A0 /* LiveScoringInningsTableViewCell.swift in Sources */,
 				05E59A961F2B310C00F58098 /* SBSFConstants.swift in Sources */,
 				050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */,
 				05E59A841F2B2A1900F58098 /* Model.xcdatamodeld in Sources */,
@@ -346,16 +363,19 @@
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A10465911F30CA9C00CC131D /* NewsArticle.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
+				A19E904B1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift in Sources */,
 				A1375AB71F3B923C0076ED50 /* GameDetails.swift in Sources */,
 				05DCEC611F2512C40039EDA0 /* SBSFClient.swift in Sources */,
 				A1375AB81F3B923C0076ED50 /* PlayersDetails.swift in Sources */,
 				A13C23551F20FEDC00E3ADAA /* Convenience.swift in Sources */,
 				A18352241F2095ED0087A717 /* StandingsViewController.swift in Sources */,
+				A19E904D1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift in Sources */,
 				A14CA48C1F20EB1F00DB0366 /* MoreTableViewController.swift in Sources */,
 				A16C6EBD1F2F9964007C805E /* CoreDataStack.swift in Sources */,
 				A15EA0671F15220800B8B310 /* NewsArticleViewController.swift in Sources */,
 				A13C23531F20FC1500E3ADAA /* Theme.swift in Sources */,
 				A18352281F20A60A0087A717 /* TeamDetails.swift in Sources */,
+				A19E90471F40F615000D59A0 /* LiveGamesTableViewController.swift in Sources */,
 				A15EA0651F1521E700B8B310 /* NewsTableViewController.swift in Sources */,
 				A1375AB91F3B923C0076ED50 /* ScheduleTableViewCell.swift in Sources */,
 			);

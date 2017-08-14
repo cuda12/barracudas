@@ -36,4 +36,45 @@ class ScheduleTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func updateWithGameDetails(_ game: GameDetails) {
+        
+        
+        self.labelAway.text = game.teams[0]
+        self.labelHome.text = game.teams[1]
+        
+        if let score = game.score {
+            self.labelScoreAway.text = "\(score[0])"
+            self.labelScoreHome.text = "\(score[1])"
+        }
+        
+        if let runners = game.runners {
+            self.imageRunners.image = UIImage(named: String(format: "bases%03d", runners))
+        } else {
+            self.imageRunners.image = nil
+        }
+        
+        switch game.state {
+        case FirebaseClient.Constants.GameStates.live:
+            self.labelInning.text = game.inning!
+        case FirebaseClient.Constants.GameStates.final:
+            self.labelInning.text = game.inning!
+            self.imageRunners.isHidden = true
+        default:
+            self.labelInning.text = game.time
+            self.imageRunners.isHidden = true
+            self.labelScoreHome.isHidden = true
+            self.labelScoreAway.isHidden = true
+        }
+        
+        // TODO team icons
+        //    - 1. prio stored on device
+        //    - 2. prio download from firebase
+        //    - 3. prio default logo
+        if let iconAway = UIImage(named: "teamIcon_"+game.teams[0]) {
+            self.iconAway.image = iconAway
+        }
+        if let iconHome = UIImage(named: "teamIcon_"+game.teams[1]) {
+            self.iconHome.image = iconHome
+        }
+    }
 }
