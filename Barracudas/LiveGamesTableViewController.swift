@@ -13,7 +13,7 @@ class LiveGamesTableViewController: UITableViewController {
     // MARK: Members
     
     var GamesDetails: [GameDetails] = []
-    
+    let currentGameDay = "20170806" // TODO today
     
     // MARK: Life cycle
     
@@ -36,14 +36,11 @@ class LiveGamesTableViewController: UITableViewController {
     // MARK: Helpers
     
     func addFirebaseListeners() {
-        
-        let currentDate = "20170806" // TODO today
-        
-        FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childAdded, forDate: currentDate) { (game) in
+        FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childAdded, forDate: currentGameDay) { (game) in
             self.GamesDetails.append(game)
             self.tableView.reloadData()
         }
-        FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childChanged, forDate: currentDate) { (game) in
+        FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childChanged, forDate: currentGameDay) { (game) in
             if let index = self.GamesDetails.index(where: { $0.snapshotKey == game.snapshotKey }) {
                 self.GamesDetails[index] = game
                 self.tableView.reloadData()
@@ -75,6 +72,7 @@ class LiveGamesTableViewController: UITableViewController {
         let liveScoringVC = storyboard!.instantiateViewController(withIdentifier: "liveScoringViewController") as! LiveScoringTableViewController
         
         liveScoringVC.gameDetails = GamesDetails[indexPath.row]
+        liveScoringVC.gameDay = currentGameDay
         
         navigationController?.pushViewController(liveScoringVC, animated: true)
     }

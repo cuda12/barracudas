@@ -9,12 +9,7 @@
 import UIKit
 
 class LiveScoringInningsTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var labelInning: UILabel!
-    @IBOutlet weak var labelOuts: UILabel!
-    @IBOutlet weak var segCtrlHalfInning: UISegmentedControl!
-    
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

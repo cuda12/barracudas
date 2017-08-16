@@ -160,10 +160,16 @@ class FirebaseClient {
     
     
     
-    // MARK: helpers methods
-    // TODO TBC delete?
-    func buildUniqueStoragePath(directory: String, fileExtension: String) -> String {
-        return directory + Auth.auth().currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000))." + fileExtension
+    // MARK: update methods
+   
+    func updateGameDetails(for gameDetails: GameDetails, onGameday gameDay: String ) {
+        // build basepath
+        let basePath = Constants.FirebaseTables.Gamedays + "/\(gameDay)/\(gameDetails.snapshotKey)/"
+
+        // TODO loop over all set values
+        for (key, value) in gameDetails.asDict() {
+             ref.child(basePath + key).setValue(value)
+        }
     }
 }
 
@@ -213,6 +219,8 @@ extension FirebaseClient {
         
         struct GameResponseKeys {
             static let Inning = "inning"
+            static let InningIsTop = "inning_is_top"
+            static let Outs = "outs"
             static let League = "league"
             static let Runners = "runners"
             static let Score = "score"

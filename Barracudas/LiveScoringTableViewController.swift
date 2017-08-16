@@ -14,7 +14,7 @@ class LiveScoringTableViewController: UITableViewController {
     
     let sectionTitles = ["Live View", "Live Scoring"]
     var gameDetails: GameDetails!
-    
+    var gameDay: String!
     
     // MARK: Life cycle
     
@@ -37,71 +37,72 @@ class LiveScoringTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func toggleRunnerOnFirst(_ sender: Any) {
-        print("toggle on 1st")
+        gameDetails.setRunners(toggleAtBase: .first)
+        performDbUpdate()
     }
     
     @IBAction func toggleRunnerOnSecond(_ sender: Any) {
-        print("toggle on 2nd")
+        gameDetails.setRunners(toggleAtBase: .second)
+        performDbUpdate()
     }
     
     @IBAction func toggleRunnerOnThird(_ sender: Any) {
-        print("toggle on 3rd")
+        gameDetails.setRunners(toggleAtBase: .third)
+        performDbUpdate()
     }
 
     @IBAction func clearAllBases(_ sender: Any) {
-        print("clear all bases")
+        gameDetails.setRunners(toValue: 0)
+        performDbUpdate()
     }
     
     @IBAction func startLiveScoring(_ sender: Any) {
-        print("start live scoring")
+        gameDetails.setGameState(to: FirebaseClient.Constants.GameStates.live)
+        performDbUpdate()
     }
     
     @IBAction func endLiveScoring(_ sender: Any) {
-        print("end live scoring")
+        gameDetails.setGameState(to: FirebaseClient.Constants.GameStates.final)
+        performDbUpdate()
     }
     
     @IBAction func setLiveScoringPpdRain(_ sender: Any) {
-        print("ppd rain")
-    }
-    
-    @IBAction func increaseInnings(_ sender: Any) {
-        print("TODO + innings")
-    }
-    
-    @IBAction func decreaseInnings(_ sender: Any) {
-        print("TODO - innings")
-    }
-    
-    @IBAction func toggleInningHalf(_ sender: Any) {
-        print("TODO switch inning")
+        gameDetails.setGameTime(to: "ppd rain")
+        performDbUpdate()
     }
     
     @IBAction func increaseOuts(_ sender: Any) {
-        print("TODO + outs")
+        gameDetails.setOuts(action: .add)
+        performDbUpdate()
     }
     
     @IBAction func decreaseOuts(_ sender: Any) {
-        print("TODO - outs")
+        gameDetails.setOuts(action: .subtract)
+        performDbUpdate()
     }
     
     @IBAction func increaseRunsAway(_ sender: Any) {
-        print("TODO + runs away")
+        gameDetails.setScore(action: .add)
+        performDbUpdate()
     }
     
     @IBAction func decreaseRunsAway(_ sender: Any) {
-        print("TODO - runs away")
+        gameDetails.setScore(action: .subtract)
+        performDbUpdate()
     }
     
-    @IBAction func increaseRunsHome(_ sender: Any) {
-        print("TODO + runs home")
-    }
-    
-    @IBAction func decreaseRunsHome(_ sender: Any) {
-        print("TODO - runs home")
-        
-    }
     
     // TODO change game time
+    
+    // TODO just add final result and end game
+    
+    
+    // MARK: - Helpers
+    
+    func performDbUpdate() {
+        FirebaseClient.sharedInstance.updateGameDetails(for: gameDetails, onGameday: gameDay)
+        tableView.reloadData()
+    }
     
     
     // MARK: - Table view data source
@@ -140,18 +141,9 @@ class LiveScoringTableViewController: UITableViewController {
                 switch indexPath.row {
                 case 0:
                     let cell = tableView.dequeueReusableCell(withIdentifier: "liveGameInningsOuts", for: indexPath) as! LiveScoringInningsTableViewCell
-                    
-                    // TODO parse firebase inning entry to label, segctrl and outs -> do this in the model
-                    //cell.labelInning.text = gameDetails.inning
-                    
-                    
                     return cell
                 case 1:
                     let cell = tableView.dequeueReusableCell(withIdentifier: "liveGameScore", for: indexPath) as! LiveScoringScoreTableViewCell
-                    cell.labelAwayTeam.text = gameDetails.teams[0]
-                    cell.labelHomeTeam.text = gameDetails.teams[1]
-                    cell.labelAwayRuns.text = String(gameDetails.score?[0] ?? 0)
-                    cell.labelHomeRuns.text = String(gameDetails.score?[1] ?? 0)
                     return cell
                 case 2:
                     let cell = tableView.dequeueReusableCell(withIdentifier: "liveGameSetRunners", for: indexPath) as! LiveScoringSetRunnersTableViewCell

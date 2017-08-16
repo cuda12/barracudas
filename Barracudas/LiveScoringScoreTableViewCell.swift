@@ -9,11 +9,6 @@
 import UIKit
 
 class LiveScoringScoreTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var labelAwayTeam: UILabel!
-    @IBOutlet weak var labelHomeTeam: UILabel!
-    @IBOutlet weak var labelAwayRuns: UILabel!
-    @IBOutlet weak var labelHomeRuns: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

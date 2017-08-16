@@ -55,10 +55,16 @@ class ScheduleTableViewCell: UITableViewCell {
         
         switch game.state {
         case FirebaseClient.Constants.GameStates.live:
-            self.labelInning.text = game.inning!
+            self.labelInning.text = game.inningDetailsString
+            self.imageRunners.isHidden = false
+            self.labelScoreHome.isHidden = false
+            self.labelScoreAway.isHidden = false
+            
         case FirebaseClient.Constants.GameStates.final:
-            self.labelInning.text = game.inning!
+            self.labelInning.text = game.finalStateString
             self.imageRunners.isHidden = true
+            self.labelScoreHome.isHidden = false
+            self.labelScoreAway.isHidden = false
         default:
             self.labelInning.text = game.time
             self.imageRunners.isHidden = true

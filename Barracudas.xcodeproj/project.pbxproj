@@ -150,15 +150,15 @@
 			children = (
 				A1375AB41F3B923C0076ED50 /* GameDetails.swift */,
 				A1375AB51F3B923C0076ED50 /* PlayersDetails.swift */,
+				A18352271F20A60A0087A717 /* TeamDetails.swift */,
+				A10465901F30CA9C00CC131D /* NewsArticle.swift */,
+				05E59A821F2B2A1900F58098 /* Model.xcdatamodeld */,
 				A16C6EBC1F2F9964007C805E /* CoreDataStack.swift */,
 				05E59A911F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift */,
 				05E59A921F2B2E4300F58098 /* TeamsStandings+CoreDataProperties.swift */,
-				A18352271F20A60A0087A717 /* TeamDetails.swift */,
 				05DCEC601F2512C40039EDA0 /* SBSFClient.swift */,
-				05E59A821F2B2A1900F58098 /* Model.xcdatamodeld */,
 				05E59A951F2B310C00F58098 /* SBSFConstants.swift */,
 				A104658E1F30C58800CC131D /* FirebaseClient.swift */,
-				A10465901F30CA9C00CC131D /* NewsArticle.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
