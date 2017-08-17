@@ -46,6 +46,9 @@
 		A19E90491F410079000D59A0 /* LiveScoringInningsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19E90481F410079000D59A0 /* LiveScoringInningsTableViewCell.swift */; };
 		A19E904B1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19E904A1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift */; };
 		A19E904D1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19E904C1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift */; };
+		A1B206161F44C7D30055A80D /* LiveScoringButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B206151F44C7D30055A80D /* LiveScoringButtonTableViewCell.swift */; };
+		A1B206181F44DB200055A80D /* LiveGameFinalResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B206171F44DB200055A80D /* LiveGameFinalResultTableViewCell.swift */; };
+		A1B2061A1F44DB450055A80D /* LiveChangeGameTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B206191F44DB450055A80D /* LiveChangeGameTimeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +92,9 @@
 		A19E90481F410079000D59A0 /* LiveScoringInningsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringInningsTableViewCell.swift; sourceTree = "<group>"; };
 		A19E904A1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringScoreTableViewCell.swift; sourceTree = "<group>"; };
 		A19E904C1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringSetRunnersTableViewCell.swift; sourceTree = "<group>"; };
+		A1B206151F44C7D30055A80D /* LiveScoringButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringButtonTableViewCell.swift; sourceTree = "<group>"; };
+		A1B206171F44DB200055A80D /* LiveGameFinalResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGameFinalResultTableViewCell.swift; sourceTree = "<group>"; };
+		A1B206191F44DB450055A80D /* LiveChangeGameTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveChangeGameTimeTableViewCell.swift; sourceTree = "<group>"; };
 		CB2391AFFD19A3283037472C /* Pods-Barracudas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barracudas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Barracudas/Pods-Barracudas.debug.xcconfig"; sourceTree = "<group>"; };
 		DACCF0D756B3E667570A9C8D /* Pods-Barracudas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barracudas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Barracudas/Pods-Barracudas.release.xcconfig"; sourceTree = "<group>"; };
 		F9CDA768CE955E5764F000A4 /* Pods_Barracudas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barracudas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +203,9 @@
 				A19E90481F410079000D59A0 /* LiveScoringInningsTableViewCell.swift */,
 				A19E904A1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift */,
 				A19E904C1F4100A0000D59A0 /* LiveScoringSetRunnersTableViewCell.swift */,
+				A1B206151F44C7D30055A80D /* LiveScoringButtonTableViewCell.swift */,
+				A1B206171F44DB200055A80D /* LiveGameFinalResultTableViewCell.swift */,
+				A1B206191F44DB450055A80D /* LiveChangeGameTimeTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -355,6 +364,7 @@
 				050E12341F1A293000318439 /* RostersTableViewController.swift in Sources */,
 				05E59A841F2B2A1900F58098 /* Model.xcdatamodeld in Sources */,
 				A1375ABD1F409B4C0076ED50 /* LiveScoringTableViewController.swift in Sources */,
+				A1B2061A1F44DB450055A80D /* LiveChangeGameTimeTableViewCell.swift in Sources */,
 				A18352261F209F260087A717 /* RosterTeamTableViewController.swift in Sources */,
 				A14CA48A1F20E72900DB0366 /* ContactTableViewController.swift in Sources */,
 				A104658F1F30C58800CC131D /* FirebaseClient.swift in Sources */,
@@ -363,7 +373,9 @@
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A10465911F30CA9C00CC131D /* NewsArticle.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,
+				A1B206181F44DB200055A80D /* LiveGameFinalResultTableViewCell.swift in Sources */,
 				A19E904B1F41008D000D59A0 /* LiveScoringScoreTableViewCell.swift in Sources */,
+				A1B206161F44C7D30055A80D /* LiveScoringButtonTableViewCell.swift in Sources */,
 				A1375AB71F3B923C0076ED50 /* GameDetails.swift in Sources */,
 				05DCEC611F2512C40039EDA0 /* SBSFClient.swift in Sources */,
 				A1375AB81F3B923C0076ED50 /* PlayersDetails.swift in Sources */,

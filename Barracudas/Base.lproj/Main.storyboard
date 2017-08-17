@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -354,7 +355,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveGameStartScoring" rowHeight="44" id="DNO-iF-QOg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveGameButton" rowHeight="44" id="DNO-iF-QOg" customClass="LiveScoringButtonTableViewCell" customModule="Barracudas" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DNO-iF-QOg" id="4Mf-hT-K0k">
@@ -362,10 +363,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCa-Ik-ge8">
-                                            <rect key="frame" x="103" y="6.5" width="114" height="30"/>
-                                            <state key="normal" title="start live scoring"/>
+                                            <rect key="frame" x="138" y="6.5" width="45" height="30"/>
+                                            <state key="normal" title="button"/>
                                             <connections>
-                                                <action selector="startLiveScoring:" destination="cuO-nz-mwo" eventType="touchUpInside" id="DVi-p2-b4x"/>
+                                                <action selector="performButtonCellAction:" destination="cuO-nz-mwo" eventType="touchUpInside" id="88b-57-Dxb"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -374,6 +375,9 @@
                                         <constraint firstItem="JCa-Ik-ge8" firstAttribute="centerY" secondItem="4Mf-hT-K0k" secondAttribute="centerY" id="fG2-cM-8S9"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="button" destination="JCa-Ik-ge8" id="gOx-RN-eEn"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveGameInningsOuts" rowHeight="110" id="Omy-1u-9Gf" customClass="LiveScoringInningsTableViewCell" customModule="Barracudas" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99.5" width="320" height="110"/>
@@ -447,7 +451,7 @@
                                                             <state key="normal" image="AddButton"/>
                                                             <state key="highlighted" image="AddHighlightedButton"/>
                                                             <connections>
-                                                                <action selector="increaseRunsAway:" destination="cuO-nz-mwo" eventType="touchUpInside" id="qKJ-9m-8q1"/>
+                                                                <action selector="increaseRuns:" destination="cuO-nz-mwo" eventType="touchUpInside" id="VG2-sG-ije"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Uq-7B-kc7">
@@ -455,7 +459,7 @@
                                                             <state key="normal" image="SubtractButton"/>
                                                             <state key="highlighted" image="SubtractHighlightedButton"/>
                                                             <connections>
-                                                                <action selector="decreaseRunsAway:" destination="cuO-nz-mwo" eventType="touchUpInside" id="dlY-mx-uGG"/>
+                                                                <action selector="decreaseRuns:" destination="cuO-nz-mwo" eventType="touchUpInside" id="hMl-X0-dzp"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -543,45 +547,96 @@
                                     <outlet property="imageBases" destination="4Fm-mc-m5B" id="ORP-VX-BM4"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveGameEnd" rowHeight="44" id="S8n-Wg-QoK">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveGameFinalResult" rowHeight="44" id="S8n-Wg-QoK" customClass="LiveGameFinalResultTableViewCell" customModule="Barracudas" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="444.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S8n-Wg-QoK" id="WPM-xg-o52">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOS-D6-4er">
-                                            <rect key="frame" x="126" y="7" width="68" height="30"/>
-                                            <state key="normal" title="end game"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64g-Sc-nUZ">
+                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjs-C2-iKh">
+                                            <rect key="frame" x="152" y="6" width="160" height="30"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             <connections>
-                                                <action selector="endLiveScoring:" destination="cuO-nz-mwo" eventType="touchUpInside" id="Wpr-sc-pab"/>
+                                                <outlet property="delegate" destination="cuO-nz-mwo" id="Ygw-vY-rDE"/>
                                             </connections>
-                                        </button>
+                                        </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="JOS-D6-4er" firstAttribute="centerX" secondItem="WPM-xg-o52" secondAttribute="centerX" id="5Vq-6f-i5e"/>
-                                        <constraint firstItem="JOS-D6-4er" firstAttribute="centerY" secondItem="WPM-xg-o52" secondAttribute="centerY" id="mOv-Km-gkv"/>
+                                        <constraint firstItem="mjs-C2-iKh" firstAttribute="centerY" secondItem="WPM-xg-o52" secondAttribute="centerY" id="83D-Lv-8g5"/>
+                                        <constraint firstItem="mjs-C2-iKh" firstAttribute="trailing" secondItem="WPM-xg-o52" secondAttribute="trailingMargin" id="cEQ-Id-rht"/>
+                                        <constraint firstItem="mjs-C2-iKh" firstAttribute="width" secondItem="WPM-xg-o52" secondAttribute="width" multiplier="1:2" id="e4u-E0-4ht"/>
+                                        <constraint firstItem="64g-Sc-nUZ" firstAttribute="leading" secondItem="WPM-xg-o52" secondAttribute="leadingMargin" id="tHb-dE-iZR"/>
+                                        <constraint firstItem="64g-Sc-nUZ" firstAttribute="centerY" secondItem="WPM-xg-o52" secondAttribute="centerY" id="zZE-lD-SwY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="input" destination="mjs-C2-iKh" id="zfF-vS-QbV"/>
+                                    <outlet property="label" destination="64g-Sc-nUZ" id="HFB-5d-6D7"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveGamePpdRain" rowHeight="44" id="oUs-sP-oYJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveChangeGameTime" rowHeight="44" id="oUs-sP-oYJ" customClass="LiveChangeGameTimeTableViewCell" customModule="Barracudas" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="488.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oUs-sP-oYJ" id="ix7-PG-ZPh">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U84-xW-heE">
-                                            <rect key="frame" x="132" y="7" width="57" height="30"/>
-                                            <state key="normal" title="ppd rain"/>
-                                            <connections>
-                                                <action selector="setLiveScoringPpdRain:" destination="cuO-nz-mwo" eventType="touchUpInside" id="HdG-Np-kP3"/>
-                                            </connections>
-                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game starts at:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KY-8V-a0U">
+                                            <rect key="frame" x="8" y="11" width="118" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXE-ce-TEb">
+                                            <rect key="frame" x="270" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="U84-xW-heE" firstAttribute="centerX" secondItem="ix7-PG-ZPh" secondAttribute="centerX" id="693-FR-aFQ"/>
-                                        <constraint firstItem="U84-xW-heE" firstAttribute="centerY" secondItem="ix7-PG-ZPh" secondAttribute="centerY" id="bij-Z5-adf"/>
+                                        <constraint firstItem="lXE-ce-TEb" firstAttribute="trailing" secondItem="ix7-PG-ZPh" secondAttribute="trailingMargin" id="NyH-9F-WmK"/>
+                                        <constraint firstItem="lXE-ce-TEb" firstAttribute="centerY" secondItem="ix7-PG-ZPh" secondAttribute="centerY" id="aUW-PS-2aa"/>
+                                        <constraint firstItem="2KY-8V-a0U" firstAttribute="leading" secondItem="ix7-PG-ZPh" secondAttribute="leadingMargin" id="ebI-gm-3UP"/>
+                                        <constraint firstItem="2KY-8V-a0U" firstAttribute="centerY" secondItem="ix7-PG-ZPh" secondAttribute="centerY" id="jdl-7A-CW5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="labelGameTime" destination="lXE-ce-TEb" id="J6h-1v-FsW"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveChangeGameTimePicker" rowHeight="168" id="rtc-ZL-OsA">
+                                <rect key="frame" x="0.0" y="532.5" width="320" height="168"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rtc-ZL-OsA" id="7PY-w9-jbI">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="167.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Yol-yH-jAT">
+                                            <rect key="frame" x="8" y="8" width="304" height="151.5"/>
+                                            <date key="date" timeIntervalSinceReferenceDate="524604223.07352602">
+                                                <!--2017-08-16 19:23:43 +0000-->
+                                            </date>
+                                            <locale key="locale" localeIdentifier="gsw_CH"/>
+                                            <connections>
+                                                <action selector="changeGameTime:" destination="cuO-nz-mwo" eventType="valueChanged" id="xZK-Cv-gbD"/>
+                                            </connections>
+                                        </datePicker>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Yol-yH-jAT" secondAttribute="trailing" id="9tV-GD-fKx"/>
+                                        <constraint firstItem="Yol-yH-jAT" firstAttribute="leading" secondItem="7PY-w9-jbI" secondAttribute="leadingMargin" id="g0J-Sb-9g4"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Yol-yH-jAT" secondAttribute="bottom" id="nCw-fb-oA9"/>
+                                        <constraint firstItem="Yol-yH-jAT" firstAttribute="top" secondItem="7PY-w9-jbI" secondAttribute="topMargin" id="qdW-C8-AkH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>

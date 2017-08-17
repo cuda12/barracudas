@@ -65,6 +65,7 @@ class LiveGamesTableViewController: UITableViewController {
         cell.textLabel?.text = "\(gameDetails.league): \(gameDetails.teams[0]) vs \(gameDetails.teams[1])"
         cell.detailTextLabel?.text = "\(gameDetails.time), \(gameDetails.state)"
         // TODO game state more user friendly
+        // TODO if final show nice result not time
         return cell
     }
     
