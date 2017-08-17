@@ -12,8 +12,14 @@ class LiveGamesTableViewController: UITableViewController {
 
     // MARK: Members
     
-    var GamesDetails: [GameDetails] = []
-    let currentGameDay = "20170806" // TODO today
+    var gamesDetails: [GameDetails] = []
+    var currentGameDay = ""
+    var isSignedIn: Bool = false
+    
+    // MARK: Outlets
+    
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
+    
     
     // MARK: Life cycle
     
@@ -23,13 +29,24 @@ class LiveGamesTableViewController: UITableViewController {
         // set navigation bar title
         self.navigationItem.title = "Select a Game"
         
+        // set current gameday date
+        setGameDayDate()
+        
         // connect to firebase
         addFirebaseListeners()
+        
+        // init ui with signed in state
+        setUIAccordingToSignInStatus(isSignedIn: false)
+        
+        // remove any empty cells at the end
+        tableView.tableFooterView = UIView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+   
+    // MARK: Actions
+    
+    @IBAction func signOut(_ sender: Any) {
+        FirebaseClient.sharedInstance.signOut()
     }
     
     
@@ -37,42 +54,86 @@ class LiveGamesTableViewController: UITableViewController {
     
     func addFirebaseListeners() {
         FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childAdded, forDate: currentGameDay) { (game) in
-            self.GamesDetails.append(game)
+            self.gamesDetails.append(game)
             self.tableView.reloadData()
         }
         FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childChanged, forDate: currentGameDay) { (game) in
-            if let index = self.GamesDetails.index(where: { $0.snapshotKey == game.snapshotKey }) {
-                self.GamesDetails[index] = game
+            if let index = self.gamesDetails.index(where: { $0.snapshotKey == game.snapshotKey }) {
+                self.gamesDetails[index] = game
                 self.tableView.reloadData()
             }
         }
+        
+        FirebaseClient.sharedInstance.registerAuthListener { (isSignedIn, user) in
+            self.setUIAccordingToSignInStatus(isSignedIn: isSignedIn)
+            
+            if !isSignedIn {
+                self.present(FirebaseClient.sharedInstance.authViewController(), animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func setGameDayDate() {
+        // set current gameday to preset value - Udacity review ONLY
+        /*  - for reviewing purpose only
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = FirebaseClient.Constants.GameDays.DateFormat
+        currentGameDay = dateFormatter.string(from: Date())
+        */
+        currentGameDay = "20170806"
+    }
+    
+    func setUIAccordingToSignInStatus(isSignedIn state: Bool) {
+        isSignedIn = state
+        signOutButton.isEnabled = state
+        tableView.reloadData()
+        
     }
     
 
     // MARK: - Table view data source
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // automatically resize the rows height
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 44
+        
+        return 1
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GamesDetails.count
+        return ((isSignedIn && gamesDetails.count > 0) ? gamesDetails.count : 1)
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "liveGamesCell", for: indexPath)
+        if isSignedIn {
+            if gamesDetails.count > 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "liveGamesCell", for: indexPath)
+                
+                // Configure the cell...
+                let gameDetails = gamesDetails[indexPath.row]
+                
+                cell.textLabel?.text = "\(gameDetails.league): \(gameDetails.teams[0]) vs \(gameDetails.teams[1])"
+                cell.detailTextLabel?.text = "\(gameDetails.time), \(gameDetails.state)"
+                // TODO game state more user friendly
+                // TODO if final show nice result not time
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "noGamesCell", for: indexPath)
+                return cell
+            }
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "signInInfoCell", for: indexPath)
+            return cell
 
-        // Configure the cell...
-        let gameDetails = GamesDetails[indexPath.row]
-        
-        cell.textLabel?.text = "\(gameDetails.league): \(gameDetails.teams[0]) vs \(gameDetails.teams[1])"
-        cell.detailTextLabel?.text = "\(gameDetails.time), \(gameDetails.state)"
-        // TODO game state more user friendly
-        // TODO if final show nice result not time
-        return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let liveScoringVC = storyboard!.instantiateViewController(withIdentifier: "liveScoringViewController") as! LiveScoringTableViewController
         
-        liveScoringVC.gameDetails = GamesDetails[indexPath.row]
+        liveScoringVC.gameDetails = gamesDetails[indexPath.row]
         liveScoringVC.gameDay = currentGameDay
         
         navigationController?.pushViewController(liveScoringVC, animated: true)
