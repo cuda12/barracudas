@@ -166,7 +166,7 @@ class FirebaseClient {
         // build basepath
         let basePath = Constants.FirebaseTables.Gamedays + "/\(gameDay)/\(gameDetails.snapshotKey)/"
 
-        // TODO loop over all set values
+        // loop over all set values
         for (key, value) in gameDetails.asDict() {
              ref.child(basePath + key).setValue(value)
         }

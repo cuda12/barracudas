@@ -12,8 +12,8 @@ class SchedulePageViewController: UIPageViewController {
 
     // MARK: Members
     
-    // TODO from db
     var gameDays: [String] = []
+    
     
     // MARK: Life cycle
     
@@ -44,7 +44,7 @@ class SchedulePageViewController: UIPageViewController {
                     // load inital page
                     self.setPage(atIndex: self.getClosestGamedayIndex())
                     
-                    // TODO disable loading page
+                    // TODO disable loading page ???
                 }
             } else {
                 print("TODO")

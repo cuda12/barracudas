@@ -115,9 +115,15 @@ class LiveGamesTableViewController: UITableViewController {
                 let gameDetails = gamesDetails[indexPath.row]
                 
                 cell.textLabel?.text = "\(gameDetails.league): \(gameDetails.teams[0]) vs \(gameDetails.teams[1])"
-                cell.detailTextLabel?.text = "\(gameDetails.time), \(gameDetails.state)"
-                // TODO game state more user friendly
-                // TODO if final show nice result not time
+                
+                switch gameDetails.state {
+                case FirebaseClient.Constants.GameStates.final:
+                    cell.detailTextLabel?.text = gameDetails.finalStateString
+                case FirebaseClient.Constants.GameStates.notStarted:
+                    cell.detailTextLabel?.text = "\(gameDetails.time), not yet started"
+                default:
+                    cell.detailTextLabel?.text = "\(gameDetails.state) - \(gameDetails.inningDetailsString ?? "")"
+                }
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "noGamesCell", for: indexPath)
