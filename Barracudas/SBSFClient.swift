@@ -44,8 +44,18 @@ class SBSFClient: NSObject {
         let task = session.dataTask(with: request) { (data, response, error) in
             
             // check requesting data didnt fail (i.e. an error occured, an invalid response status code or no data was returned)
-            guard (error == nil), let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299, let data = data   else {
+            guard (error == nil) else {
                 completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: error!]))
+                return
+            }
+            
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: "invalid status Code"]))
+                return
+            }
+            
+            guard let data = data else {
+                completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: "no data found"]))
                 return
             }
             

@@ -78,7 +78,6 @@ class ScheduleViewController: UIViewController {
         
         // add a listener to track game changes
         FirebaseClient.sharedInstance.registerGamedayListener(toObserve: .childChanged, forDate: selectedGameDay!, completionHandler: { (game) in
-            print(game)
             if let leagueIndex = self.LeaguesAbbr.index(of: game.league) {
                 if let index = self.GamesDetails[leagueIndex].index(where: { $0.snapshotKey == game.snapshotKey }) {
                     self.GamesDetails[leagueIndex][index] = game

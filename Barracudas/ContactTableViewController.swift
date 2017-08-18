@@ -22,16 +22,13 @@ class ContactTableViewController: UITableViewController {
 
 
     @IBAction func sendEmail(_ sender: Any) {
-         print("test mail")
          if let url = URL(string: "mailto:info@barracudas.ch") {
-         print(url)
          UIApplication.shared.open(url)
          }
     }
     
     @IBAction func getDirectionsToBallpark(_ sender: Any) {
         if let url = URL(string: "https://maps.google.com/?q=47.4031,8.5959") {
-            print(url)
             UIApplication.shared.open(url)
         }
     }

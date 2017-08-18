@@ -62,12 +62,13 @@ class FirebaseClient {
     }
     
     deinit {
-        // TODO: set up what needs to be deinitialized when view is no longer used
+        // set up what needs to be deinitialized when client is no longer used
         
-        // TODO remove auth handle
+        // remove auth handle
+        Auth.auth().removeStateDidChangeListener(_authHandle)
         
-        // TODO TBC if this is a good place since a client class is used
-        ref.child(Constants.FirebaseTables.News).removeObserver(withHandle: _refHandle)
+        // remove all listeners
+        ref.removeAllObservers()
     }
     
     
@@ -116,7 +117,6 @@ class FirebaseClient {
         // retrieve array of all gamedays once
         
         ref.child(Constants.FirebaseTables.GamedaysAll).observeSingleEvent(of: .value, with: { (snapshot) in
-            print(snapshot)
             if let values = snapshot.value as? [String] {
                 completionHandler(values)
             } else {

@@ -15,12 +15,15 @@ class StandingsViewController: UIViewController {
     
     let stack = (UIApplication.shared.delegate as! AppDelegate).stack
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
+    let refreshControl = UIRefreshControl()
     
     
     // MARK: Outlets
     
     @IBOutlet weak var tableStandings: UITableView!
     @IBOutlet weak var segmentLeagueSelection: UISegmentedControl!
+    @IBOutlet weak var footerLabelLastUpdate: UILabel!
+    @IBOutlet weak var footerLabelSuccess: UILabel!
     
     
     // MARK: Initiliazier for FetchResultsController
@@ -57,12 +60,8 @@ class StandingsViewController: UIViewController {
         // init the FetchedResultsController
         initializeFetchedResultscontroller(withLeagueFilter: TeamDetails.allTeams[segmentLeagueSelection.selectedSegmentIndex].abbrTeamName)
         
-        // remove any empty cells at the end
-        tableStandings.tableFooterView = UIView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        // setup tableview
+        setupTableView()
         
         // update the standings
         updateStandings()
@@ -72,13 +71,18 @@ class StandingsViewController: UIViewController {
     // MARK: Methods
     
     func updateStandings() {
-        // load the current standings - also call with pull down? indicate download
-        print("download standings from spielplan")
+        // indicate refreshing
+        self.refreshControl.beginRefreshing()
+        
+        // call sbsf client to download the standings
         SBSFClient.sharedInstance().getStandings { (success, error) in
-            print("update standings was successful: \(success)")
-            
-            // TODO indicate update request (turn off in completetion handler)
-            // TODO credit to spielplan.ch - update last update time stamp, tbc busy indicator?
+            self.performUIUpdatesOnMain {
+                self.refreshControl.endRefreshing()
+                self.setFooterLabelTitle(to: success)
+                if success {
+                    self.updateLastUpdateTimeStamp()
+                }
+            }
         }
     }
     
@@ -94,6 +98,44 @@ class StandingsViewController: UIViewController {
         } catch {
             fatalError("failed to perform fetch")
         }
+    }
+    
+    @objc private func refreshStandingData(_ sender: Any) {
+        updateStandings()
+    }
+    
+    
+    // MARK: Helpers
+    
+    func setupTableView() {
+        // set footer labels
+        setFootLabelUpdate(to: UserDefaults.standard.value(forKey: "lastStandingsUpdate") as? Date)
+        setFooterLabelTitle(to: true)
+        
+        // add refresh control to the table view
+        tableStandings.refreshControl = refreshControl
+        
+        // configure refresh control
+        refreshControl.addTarget(self, action: #selector(refreshStandingData(_:)), for: .valueChanged)
+        refreshControl.attributedTitle = NSAttributedString(string: "Updating Standings ...")
+    }
+    
+    func updateLastUpdateTimeStamp() {
+        let currentDate = Date()
+        UserDefaults.standard.set(currentDate, forKey: "lastStandingsUpdate")
+        setFootLabelUpdate(to: currentDate)
+    }
+    
+    func setFootLabelUpdate(to date: Date?) {
+        if let date = date {
+            footerLabelLastUpdate.text = "last update: \(DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .medium))"
+        } else {
+            footerLabelLastUpdate.text = "no previously downloaded data available"
+        }
+    }
+    
+    func setFooterLabelTitle(to success: Bool) {
+        footerLabelSuccess.text = success ? "Standings are provided by spielplan.ch" : "couldnt download standings from spielplan.ch, check your network connection"
     }
 }
 

@@ -23,7 +23,6 @@ class MoreTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // only for social media section
         if indexPath.section == 1 {
-            print("open social medias")
             var appUrl: URL
             var webUrl: URL
             

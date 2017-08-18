@@ -22,6 +22,9 @@ class SchedulePageViewController: UIPageViewController {
 
         // connect dataSource
         dataSource = self
+        
+        // initiate with default page
+        setDefaultPage()
 
         // load dates of gamedays
         getGamedaysFromFirebase()
@@ -34,6 +37,7 @@ class SchedulePageViewController: UIPageViewController {
     
 
     // MARK: Helpers
+    
     func getGamedaysFromFirebase() {
         // get all gameday dates from firebase database
         FirebaseClient.sharedInstance.registerGamedaysSingleObservation(completionHandler: { (dates) in
@@ -43,12 +47,8 @@ class SchedulePageViewController: UIPageViewController {
                     
                     // load inital page
                     self.setPage(atIndex: self.getClosestGamedayIndex())
-                    
-                    // TODO disable loading page! -> show loading page prior if no gameDays
                 }
-            } else {
-                print("TODO") // show on loading page couldn download gamedays check internet connection
-            }
+            } 
         })
     }
     
@@ -68,6 +68,13 @@ class SchedulePageViewController: UIPageViewController {
         if let viewController = getScheduleViewController(forPageIndex: index) {
             setViewControllers([viewController], direction: towards, animated: animated, completion: nil)
         }
+    }
+    
+    func setDefaultPage() {
+        guard let page = storyboard?.instantiateViewController(withIdentifier: "ScheduleDefaultViewController") else {
+            return
+        }
+        setViewControllers([page], direction: .forward, animated: false, completion: nil)
     }
     
     func isAtMaxIndex(_ viewController: UIViewController?) -> Bool {

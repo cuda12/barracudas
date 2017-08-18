@@ -10,6 +10,8 @@ import UIKit
 
 class NotificationsTableViewController: UITableViewController {
 
+    // version 1.1 connect to firebase notifications (not part of the udacity review)
+    
     // MARK: Members
     
     var notifications: CudasNotifications!     
