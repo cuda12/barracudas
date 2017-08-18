@@ -38,4 +38,14 @@ extension TeamDetails {
         
         return teamsArray
     }
+    
+    static var allAbbrivitaions: [String] {
+        var abbrs = [String]()
+        
+        for team in allTeams {
+            abbrs.append(team.abbrTeamName)
+        }
+        
+        return abbrs
+    }
 }

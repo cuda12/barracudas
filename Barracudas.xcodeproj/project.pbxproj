@@ -49,6 +49,7 @@
 		A1B206161F44C7D30055A80D /* LiveScoringButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B206151F44C7D30055A80D /* LiveScoringButtonTableViewCell.swift */; };
 		A1B206181F44DB200055A80D /* LiveGameFinalResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B206171F44DB200055A80D /* LiveGameFinalResultTableViewCell.swift */; };
 		A1B2061A1F44DB450055A80D /* LiveChangeGameTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B206191F44DB450055A80D /* LiveChangeGameTimeTableViewCell.swift */; };
+		A1B2061E1F4627EF0055A80D /* CudasNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2061D1F4627EF0055A80D /* CudasNotifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		A1B206151F44C7D30055A80D /* LiveScoringButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringButtonTableViewCell.swift; sourceTree = "<group>"; };
 		A1B206171F44DB200055A80D /* LiveGameFinalResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveGameFinalResultTableViewCell.swift; sourceTree = "<group>"; };
 		A1B206191F44DB450055A80D /* LiveChangeGameTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveChangeGameTimeTableViewCell.swift; sourceTree = "<group>"; };
+		A1B2061D1F4627EF0055A80D /* CudasNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CudasNotifications.swift; sourceTree = "<group>"; };
 		CB2391AFFD19A3283037472C /* Pods-Barracudas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barracudas.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Barracudas/Pods-Barracudas.debug.xcconfig"; sourceTree = "<group>"; };
 		DACCF0D756B3E667570A9C8D /* Pods-Barracudas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barracudas.release.xcconfig"; path = "Pods/Target Support Files/Pods-Barracudas/Pods-Barracudas.release.xcconfig"; sourceTree = "<group>"; };
 		F9CDA768CE955E5764F000A4 /* Pods_Barracudas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barracudas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 				05DCEC601F2512C40039EDA0 /* SBSFClient.swift */,
 				05E59A951F2B310C00F58098 /* SBSFConstants.swift */,
 				A104658E1F30C58800CC131D /* FirebaseClient.swift */,
+				A1B2061D1F4627EF0055A80D /* CudasNotifications.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				A104658F1F30C58800CC131D /* FirebaseClient.swift in Sources */,
 				05E59A931F2B2E4300F58098 /* TeamsStandings+CoreDataClass.swift in Sources */,
 				A1375ABB1F3B945F0076ED50 /* SchedulePageViewController.swift in Sources */,
+				A1B2061E1F4627EF0055A80D /* CudasNotifications.swift in Sources */,
 				A15EA05F1F15215400B8B310 /* NewsTableViewCell.swift in Sources */,
 				A10465911F30CA9C00CC131D /* NewsArticle.swift in Sources */,
 				A183522E1F20B8D80087A717 /* ScheduleViewController.swift in Sources */,

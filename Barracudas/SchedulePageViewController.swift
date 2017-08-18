@@ -44,10 +44,10 @@ class SchedulePageViewController: UIPageViewController {
                     // load inital page
                     self.setPage(atIndex: self.getClosestGamedayIndex())
                     
-                    // TODO disable loading page ???
+                    // TODO disable loading page! -> show loading page prior if no gameDays
                 }
             } else {
-                print("TODO")
+                print("TODO") // show on loading page couldn download gamedays check internet connection
             }
         })
     }

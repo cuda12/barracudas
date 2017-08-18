@@ -12,6 +12,7 @@ import CoreData
 class StandingsViewController: UIViewController {
     
     // MARK: Properties
+    
     let stack = (UIApplication.shared.delegate as! AppDelegate).stack
     var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult>!
     
@@ -53,10 +54,7 @@ class StandingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("selected index of segmentcontroll: \(segmentLeagueSelection.selectedSegmentIndex)")
-        
         // init the FetchedResultsController
-        print("call frc init")
         initializeFetchedResultscontroller(withLeagueFilter: TeamDetails.allTeams[segmentLeagueSelection.selectedSegmentIndex].abbrTeamName)
         
         // remove any empty cells at the end
@@ -66,28 +64,28 @@ class StandingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // load the current standings
+        // update the standings
+        updateStandings()
+    }
+    
+    
+    // MARK: Methods
+    
+    func updateStandings() {
+        // load the current standings - also call with pull down? indicate download
         print("download standings from spielplan")
-        SBSFClient.sharedInstance().getStandings { (result, error) in
-            print("todo handle results")
-            print(result ?? "default values - debugging results is nil")
+        SBSFClient.sharedInstance().getStandings { (success, error) in
+            print("update standings was successful: \(success)")
             
-            // TODO load here presistent data and make an update request 
+            // TODO indicate update request (turn off in completetion handler)
             // TODO credit to spielplan.ch - update last update time stamp, tbc busy indicator?
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     // MARK: Actions
     
     @IBAction func changeLeagueSelection(_ sender: Any) {
-        print("new segment control index \(segmentLeagueSelection.selectedSegmentIndex)")
-        
         let pred = NSPredicate(format: "league = %@", argumentArray: [TeamDetails.allTeams[segmentLeagueSelection.selectedSegmentIndex].abbrTeamName])
         fetchedResultsController.fetchRequest.predicate = pred
         do {
@@ -116,9 +114,11 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         guard let sections = fetchedResultsController.sections else {
             fatalError("No sections in fetchedResultsController")
         }
-        let sectionInfo = sections[section]
+        
         // add additonal row for header line
-        return sectionInfo.numberOfObjects + 1
+        let numberOfRows = sections[section].numberOfObjects + 1
+        
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -160,8 +160,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
 extension StandingsViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        print("frc will change content")
-        tableStandings.beginUpdates()
+         tableStandings.beginUpdates()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {

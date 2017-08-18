@@ -32,7 +32,7 @@ class LiveScoringTableViewController: UITableViewController {
         // set navigation bar title
         self.navigationItem.title = "Live Scoring"
         
-        // register nib for live games cell  - TODO add this to schedule view as well
+        // register nib for live games cell  
         tableView.register(UINib(nibName: "ScheduleCell", bundle: nil), forCellReuseIdentifier: "liveGameCell")
         
         // set init admin controls depending on game state

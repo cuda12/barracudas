@@ -68,7 +68,7 @@ class RosterTeamTableViewController: UITableViewController {
         if let imageUrl = playerDetails.imgUrl {
             FirebaseClient.sharedInstance.downloadAnImage(imageUrl: imageUrl) { (image, error) in
                 guard error == nil else {
-                    print("TODO error handling")
+                    // if image couldnt be downloaded just show placeholder, i.e. dont do anything
                     return
                 }
                 

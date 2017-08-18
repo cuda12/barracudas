@@ -12,25 +12,35 @@ class NotificationsTableViewController: UITableViewController {
 
     // MARK: Members
     
-    let notificationTypes = ["all", "game start", "news"]         // TODO struct? model? team depending? in multiple sections
+    var notifications: CudasNotifications!     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // set navigation bar title
         self.navigationItem.title = "Notifications"
+        
+        initNotifications()
     }
 
+    func initNotifications() {
+        // init with previously stored state, if not set default values are used
+        notifications = CudasNotifications(withStates: UserDefaults.standard.array(forKey: Constants.userDefaultsNotifications) as? [[Bool]])
+    }
+    
     
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return notifications.sectionTitles[section]
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO TBD team depending?
-        return 1
+        return notifications.sectionTitles.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notificationTypes.count
+        return notifications.notificationLabels[section].count
     }
 
     
@@ -38,8 +48,8 @@ class NotificationsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notificationsCell", for: indexPath) as! NotificationsTableViewCell
 
         // Configure the cell...
-        cell.notificationTitle.text = notificationTypes[indexPath.row]
-        // TODO load prev settings
+        cell.notificationTitle.text = notifications.notificationLabels[indexPath.section][indexPath.row]
+        cell.notificationSwitch.isOn = notifications.notificationStates[indexPath.section][indexPath.row]
         
         // add cell delegate
         cell.cellDelegate = self
@@ -54,11 +64,33 @@ class NotificationsTableViewController: UITableViewController {
 extension NotificationsTableViewController: NotificationSettingsCellDelegate {
     
     func didChangeSwitchState(sender: NotificationsTableViewCell, isOn: Bool) {
-        print("delegate switch toggled")
-        if let indexPath = self.tableView.indexPath(for: sender) {
-            print("at row \(indexPath.row) new state \(isOn)")
-            // TODO store in settings
+         if let indexPath = self.tableView.indexPath(for: sender) {
+            if indexPath.row == 0 {
+                if indexPath.section == 0 {
+                    notifications.switchAll(to: isOn)
+                } else {
+                    notifications.switchAll(forSection: indexPath.section, to: isOn)
+                }
+            } else {
+                notifications.switchState(forSection: indexPath.section, atIndex: indexPath.row, to: isOn)
+            }
+            
+            // reload the table and update the user defaults with the current states
+            tableView.reloadData()
+            UserDefaults.standard.set(notifications.notificationStates, forKey: Constants.userDefaultsNotifications)
         }
     }
-    
 }
+
+
+// MARK: - Constants extension 
+
+extension NotificationsTableViewController {
+    
+    struct Constants {
+        static let userDefaultsNotifications = "notificationStates"
+    }
+}
+
+
+

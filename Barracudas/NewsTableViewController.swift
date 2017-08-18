@@ -53,7 +53,7 @@ class NewsTableViewController: UITableViewController {
         if let articleImgUrl = article.imgUrl {
             FirebaseClient.sharedInstance.downloadAnImage(imageUrl: articleImgUrl, completionHandler: { (image, error) in
                 guard error == nil else {
-                    print("TODO error handling")
+                    // if image couldnt be downloaded just show placeholder, i.e. dont do anything
                     return
                 }
                 
@@ -63,7 +63,6 @@ class NewsTableViewController: UITableViewController {
                         cell.ArticleImage.image = image
                     }
                 }
-                
                 
                 // store the downloaded image in the articles array (for detail view of articles)
                 self.newsArticles[indexPath.row].downloadedImg = image

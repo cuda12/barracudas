@@ -72,15 +72,17 @@ class ScheduleTableViewCell: UITableViewCell {
             self.labelScoreAway.isHidden = true
         }
         
-        // TODO team icons
-        //    - 1. prio stored on device
-        //    - 2. prio download from firebase
-        //    - 3. prio default logo
-        if let iconAway = UIImage(named: "teamIcon_"+game.teams[0]) {
-            self.iconAway.image = iconAway
-        }
-        if let iconHome = UIImage(named: "teamIcon_"+game.teams[1]) {
-            self.iconHome.image = iconHome
+        self.iconAway.image = addIcon(forTeam: game.teams[0])
+        self.iconHome.image = addIcon(forTeam: game.teams[1])
+    }
+    
+    
+    func addIcon(forTeam team: String) -> UIImage? {
+        if let icon = UIImage(named: "teamIcon_"+team) {
+            return icon
+        } else {
+            // version 2.0 check firebase storage for team icon
+            return UIImage(named: "teamIcon_Placeholder")
         }
     }
 }

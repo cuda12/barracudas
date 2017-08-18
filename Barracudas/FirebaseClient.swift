@@ -175,7 +175,7 @@ class FirebaseClient {
 
 
 
-// MARK: - FirebaseClient Constants (TODO move in separate file)
+// MARK: - FirebaseClient Constants
 
 extension FirebaseClient {
     
@@ -238,14 +238,5 @@ extension FirebaseClient {
         struct GameDays {
             static let DateFormat = "yyyyMMdd"
         }
-        
-        // MARK: Storage subfolders
-        
-        struct StorageDirectory {
-            static let newsImgs = "news_images/"       // TODO check usage??
-            static let teamIcons = "team_icons/"     // TODO if no images found locally
-        }
-        
-
     }
 }

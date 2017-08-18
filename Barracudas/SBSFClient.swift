@@ -18,10 +18,9 @@ import CoreData
 class SBSFClient: NSObject {
     
     // MARK: Properties
+    
     let stack = (UIApplication.shared.delegate as! AppDelegate).stack
     var session = URLSession.shared
-    
-    // TODO config ?
     
     
     // MARK: Initializers
@@ -30,13 +29,13 @@ class SBSFClient: NSObject {
         super.init()
     }
     
-    // MARK: GET
     
-    func taskForGETMethod(_ method: String, parameters: [String: AnyObject], completionHandlerForGET: @escaping (_ result: [String:AnyObject]?, _ error: NSError?) -> Void) -> URLSessionTask {
+    // MARK: GET method
+    
+    func taskForGETMethod(_ method: String, completionHandlerForGET: @escaping (_ result: [String:AnyObject]?, _ error: NSError?) -> Void) -> URLSessionTask {
         
-        // build url with parameters (e.g. filters)
-        // TODO
-        let baseUrl = URL(string: API.baseUrl + Methods.Standings)!
+        // build url with with given method
+        let baseUrl = URL(string: API.baseUrl + method)!
         
         // configure the request
         let request = URLRequest(url: baseUrl)
@@ -44,25 +43,9 @@ class SBSFClient: NSObject {
         // make the request
         let task = session.dataTask(with: request) { (data, response, error) in
             
-            // TODO prober handle of errors and completion handlers
-            
-            // check error
-            guard (error == nil) else {
-                print("there was an error in the request to spielplan \(error!)")
-                completionHandlerForGET(nil, error! as NSError)
-                return
-            }
-            
-            // tODO check response
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                print("Status code not 2xx!)")
-                completionHandlerForGET(nil, nil)
-                return
-            }
-            
-            guard let data = data else {
-                print("no data was returned")
-                completionHandlerForGET(nil, nil)
+            // check requesting data didnt fail (i.e. an error occured, an invalid response status code or no data was returned)
+            guard (error == nil), let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299, let data = data   else {
+                completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: [NSLocalizedDescriptionKey: error!]))
                 return
             }
             
@@ -72,26 +55,20 @@ class SBSFClient: NSObject {
         
         // start the request
         task.resume()
-        
         return task
     }
     
     
-    // MARK: Convinience Methods (TODO move separate extension?)
+    // MARK: Convenience Methods
     
-    func getStandings(_ completionHanlder: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) {
-
-        // TODO TBC if parameters are need
-        let parameters = [String: AnyObject]()
+    func getStandings(_ completionHanlder: @escaping (_ success: Bool, _ error: NSError?) -> Void) {
+        // downloads standings and updates core data model
         
-        _ = self.taskForGETMethod(Methods.Standings, parameters: parameters, completionHandlerForGET: { (result, error) in
+        _ = self.taskForGETMethod(Methods.Standings, completionHandlerForGET: { (result, error) in
             guard (error == nil) else {
-                print("error loading standings")
-                // TODO completion handler here
+                completionHanlder(false, error!)
                 return
             }
-            
-            print("updating standings ---- ")
             
             // remove previous loaded standings (in case a team switches league, the complete db is dropped an reloaded)
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "TeamsStandings")
@@ -115,11 +92,9 @@ class SBSFClient: NSObject {
             // save downloaded data
             self.stack.save()
             
-            // TODO completion handler here
-            print(" --- standings updated!")
-            
+            // call completion handler
+            completionHanlder(true, nil)
         })
-        
     }
     
     
@@ -152,18 +127,17 @@ class SBSFClient: NSObject {
     }
 }
 
+
+// MARK: - Constants extension
+
 extension SBSFClient {
     
     struct API {
-        
         static let baseUrl = "http://www.spielplan.ch/api/"
-    
     }
     
     struct Methods {
-        
         static let Games = "games/"
         static let Standings = "standings/"
-        
     }
 }

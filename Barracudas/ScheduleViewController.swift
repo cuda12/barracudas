@@ -39,6 +39,9 @@ class ScheduleViewController: UIViewController {
         
         // add header title 
         headerLable.text = convertToUserfriendlyDateStr(fromDateString: selectedGameDay)
+        
+        // register nib for live games cell
+        gameDayTable.register(UINib(nibName: "ScheduleCell", bundle: nil), forCellReuseIdentifier: "liveGameCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -142,7 +145,7 @@ extension ScheduleViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleNoGamesCell", for: indexPath) 
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleGamesCell", for: indexPath) as! ScheduleTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "liveGameCell", for: indexPath) as! ScheduleTableViewCell
             
             // add current game details to cell
             cell.updateWithGameDetails(GamesDetails[indexPath.section][indexPath.row])
