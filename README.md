@@ -6,7 +6,7 @@ It provides its fanbase with:
 * live scores of the current games
 * roster information
 * current standings
-* push notifications for the latest news, score changes and/or final scores (prepared, not yet connected to firebase notifications)
+* push notifications for the latest news, score changes and/or final scores _(prepared, not yet connected to firebase notifications)_
 
 
 ## Usage
