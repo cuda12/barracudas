@@ -17,3 +17,8 @@ through the app's content.
 Games can be scored live by autherized users with the same app. To score a game live or enter its final result, the user logs 
 to the admin page, where he is provided with the admin functionalities.
 
+## Points to tacle prior to app launch
+
+The following points shall be tacled prior to the app launch (to the fanbase) after the udacity review:
+* hard coded date in admin view (switch to current date, for review purposes a specific gameday is set)
+* connect notifications to firebase
