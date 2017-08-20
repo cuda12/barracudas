@@ -29,14 +29,14 @@ struct CoreDataStack {
         
         // assume the model is in the main bundle 
         guard let modelUrl = Bundle.main.url(forResource: modelName, withExtension: "momd") else {
-            print("unable to find \(modelName) in the main bundle")
+            fatalError("unable to find \(modelName) in the main bundle")
             return nil
         }
         self.modelUrl = modelUrl
         
         // create a model from the url
         guard let model = NSManagedObjectModel(contentsOf: modelUrl) else {
-            print("unable to create a model from \(modelUrl)")
+            fatalError("unable to create a model from \(modelUrl)")
             return nil
         }
         self.model = model
@@ -54,7 +54,7 @@ struct CoreDataStack {
         // add a sqlite store located in the documents folder
         let filemanager = FileManager.default
         guard let docUrl = filemanager.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            print("unable to reach the documents folder")
+            fatalError("unable to reach the documents folder")
             return nil
         }
         self.dbUrl = docUrl.appendingPathComponent("model.sqlite")
@@ -65,7 +65,7 @@ struct CoreDataStack {
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbUrl, options: migrationOptions)
         } catch {
-            print("unable to add store at \(dbUrl)")
+            fatalError("unable to add store at \(dbUrl)")
         }
     }
     

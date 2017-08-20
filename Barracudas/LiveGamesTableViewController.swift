@@ -46,7 +46,11 @@ class LiveGamesTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func signOut(_ sender: Any) {
-        FirebaseClient.sharedInstance.signOut()
+        FirebaseClient.sharedInstance.signOut { (success) in
+            self.performUIUpdatesOnMain {
+                self.setUIAccordingToSignInStatus(isSignedIn: !success)
+            }
+        }
     }
     
     

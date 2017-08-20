@@ -150,11 +150,12 @@ class FirebaseClient {
         return authViewController
     }
     
-    func signOut() {
+    func signOut(completionHandler: @escaping (_ success: Bool) -> Void) {
         do {
             try Auth.auth().signOut()
+            completionHandler(true)
         } catch {
-            print("unable to sign out: \(error)")
+            completionHandler(false)
         }
     }
     

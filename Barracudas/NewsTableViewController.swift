@@ -96,6 +96,9 @@ class NewsTableViewController: UITableViewController {
             // add most recent article at the top
             self.newsArticles.insert(article, at: 0)
             self.tableView.reloadData()
+            
+            // remove the check network hint
+            self.tableView.tableFooterView = UIView()
         }
     }
 }
