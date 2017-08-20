@@ -235,17 +235,3 @@ extension StandingsViewController: NSFetchedResultsControllerDelegate {
         tableStandings.endUpdates()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

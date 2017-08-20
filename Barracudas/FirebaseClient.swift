@@ -160,7 +160,6 @@ class FirebaseClient {
     }
     
     
-    
     // MARK: update methods
    
     func updateGameDetails(for gameDetails: GameDetails, onGameday gameDay: String ) {
@@ -173,7 +172,6 @@ class FirebaseClient {
         }
     }
 }
-
 
 
 // MARK: - FirebaseClient Constants
@@ -229,6 +227,9 @@ extension FirebaseClient {
             static let Teams = "teams"
             static let Time = "time"
         }
+        
+        
+        // MARK: Games States and DateFormat
         
         struct GameStates {
             static let live = "live"

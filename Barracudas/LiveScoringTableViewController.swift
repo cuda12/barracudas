@@ -173,6 +173,7 @@ class LiveScoringTableViewController: UITableViewController {
         return (tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? LiveChangeGameTimeTableViewCell)?.labelGameTime.text
     }
     
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

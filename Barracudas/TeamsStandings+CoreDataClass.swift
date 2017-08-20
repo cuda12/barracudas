@@ -16,9 +16,7 @@ public class TeamsStandings: NSManagedObject {
     
     convenience init(league: String, recordDetails: [String:AnyObject], context: NSManagedObjectContext) {
         
-        // An EntityDescription is an object that has access to all
-        // the information you provided in the Entity part of the model
-        // you need it to create an instance of this class.
+        // create an instance of the EntityDescription class.
         if let ent = NSEntityDescription.entity(forEntityName: "TeamsStandings", in: context) {
             self.init(entity: ent, insertInto: context)
             

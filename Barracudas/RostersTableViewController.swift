@@ -11,7 +11,9 @@ import UIKit
 class RostersTableViewController: UITableViewController {
     
     // MARK: Members
+    
     let teams = TeamDetails.allTeams
+    
     
     // MARK: Life cycle
 
@@ -27,6 +29,7 @@ class RostersTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Table view data source and delegates
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

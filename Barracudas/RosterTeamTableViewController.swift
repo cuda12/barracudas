@@ -11,9 +11,11 @@ import UIKit
 class RosterTeamTableViewController: UITableViewController {
     
     // MARK: Members
+    
     let sectionTitles = ["Pitchers", "Infielders", "Outfielders", "Coaches"]
     var teamDetails: TeamDetails!
     var playerDetails: [[PlayersDetails]] = [[], [], [], []]
+    
     
     // MARK: Life cycle
     

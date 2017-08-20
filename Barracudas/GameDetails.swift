@@ -24,7 +24,6 @@ struct GameDetails {
     var state: String
     var time: String
     
-    
     enum SetActionTypes {
         case add, subtract
     }
@@ -32,6 +31,7 @@ struct GameDetails {
     enum Bases {
         case first, second, third
     }
+    
     
     // MARK: Calculated Properties
     

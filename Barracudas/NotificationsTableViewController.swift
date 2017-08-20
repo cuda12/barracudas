@@ -93,6 +93,3 @@ extension NotificationsTableViewController {
         static let userDefaultsNotifications = "notificationStates"
     }
 }
-
-
-

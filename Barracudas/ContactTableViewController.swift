@@ -10,16 +10,15 @@ import UIKit
 
 class ContactTableViewController: UITableViewController {
 
+    // MARK: Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
+    
+    // MARK: Actions
 
     @IBAction func sendEmail(_ sender: Any) {
          if let url = URL(string: "mailto:info@barracudas.ch") {

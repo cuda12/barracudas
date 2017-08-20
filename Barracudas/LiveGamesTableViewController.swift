@@ -16,6 +16,7 @@ class LiveGamesTableViewController: UITableViewController {
     var currentGameDay = ""
     var isSignedIn: Bool = false
     
+    
     // MARK: Outlets
     
     @IBOutlet weak var signOutButton: UIBarButtonItem!

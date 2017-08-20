@@ -43,11 +43,6 @@ class ScheduleViewController: UIViewController {
         // register nib for live games cell
         gameDayTable.register(UINib(nibName: "ScheduleCell", bundle: nil), forCellReuseIdentifier: "liveGameCell")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     
     // MARK: Actions

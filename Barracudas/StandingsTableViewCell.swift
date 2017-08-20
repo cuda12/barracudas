@@ -18,7 +18,6 @@ class StandingsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
         // initialize default values with header attributes
         labelTeam.text = "Team"
@@ -33,5 +32,4 @@ class StandingsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

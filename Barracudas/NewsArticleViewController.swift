@@ -11,7 +11,9 @@ import UIKit
 class NewsArticleViewController: UIViewController {
 
     // MARK: Porperties
+    
     var newsArticle: NewsArticle!
+    
     
     // MARK: Outlets
     

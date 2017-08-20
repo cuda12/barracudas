@@ -12,7 +12,6 @@ import CoreData
 
 struct CoreDataStack {
     
-    
     // MARK:  - Properties
     
     private let model: NSManagedObjectModel
@@ -76,6 +75,7 @@ struct CoreDataStack {
     }
 }
 
+
 // MARK: - CoreDataStack (Removing Data)
 
 internal extension CoreDataStack  {
@@ -113,10 +113,3 @@ extension CoreDataStack {
         }
     }
 }
-
-
-
-
-
-
-
