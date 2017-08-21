@@ -95,6 +95,13 @@ class RosterTeamTableViewController: UITableViewController {
             self.playerDetails[self.getSectionIndex(position: player.position)].append(player)
             self.tableView.reloadData()
         })
+        
+        // add the connection state listener
+        FirebaseClient.sharedInstance.registerConnectionStateListener { (state) in
+            self.performUIUpdatesOnMain {
+                self.tableView.tableHeaderView = state ? nil : OfflineIndicationLabel()
+            }
+        }
     }
     
     func getSectionIndex(position: String) -> Int {

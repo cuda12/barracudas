@@ -80,6 +80,13 @@ class ScheduleViewController: UIViewController {
                 }
             }
         })
+        
+        // add the connection state listener
+        FirebaseClient.sharedInstance.registerConnectionStateListener { (state) in
+            self.performUIUpdatesOnMain {
+                self.gameDayTable.tableHeaderView = state ? nil : OfflineIndicationLabel()
+            }
+        }
     }
     
     func initGamesDetails() {

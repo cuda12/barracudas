@@ -125,6 +125,14 @@ class FirebaseClient {
         })
     }
     
+    func registerConnectionStateListener(completionHanlder: @escaping (_ isConnected: Bool) -> Void) {
+        // detecting connection state
+        
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { (snapshot) in
+            completionHanlder(snapshot.value as? Bool ?? false)
+        })
+    }
     
     // MARK: download images
     

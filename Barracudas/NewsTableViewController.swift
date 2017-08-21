@@ -25,11 +25,6 @@ class NewsTableViewController: UITableViewController {
         addFirebaseListener()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
     // MARK: - Table view data source
 
@@ -100,6 +95,13 @@ class NewsTableViewController: UITableViewController {
             
             // remove the check network hint
             self.tableView.tableFooterView = UIView()
+        }
+        
+        // add the connection state listener
+        FirebaseClient.sharedInstance.registerConnectionStateListener { (state) in
+            self.performUIUpdatesOnMain {
+                self.tableView.tableHeaderView = state ? nil : OfflineIndicationLabel()
+            }
         }
     }
 }
