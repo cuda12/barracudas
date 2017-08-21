@@ -23,11 +23,3 @@ The following points shall be tacled prior to the app launch (to the fanbase) af
 * hard coded date in admin view (switch to current date, for review purposes a specific gameday is set)
 * connect notifications to firebase
 
-
-## TODO - feedback review
-
-Firebase is online:
-https://firebase.google.com/docs/database/ios/offline-capabilities#section-connection-state
-
-Indicate state as table header view
-https://developer.apple.com/documentation/uikit/uitableview/1614904-tableheaderview
