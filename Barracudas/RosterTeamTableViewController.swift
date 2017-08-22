@@ -17,6 +17,13 @@ class RosterTeamTableViewController: UITableViewController {
     var playerDetails: [[PlayersDetails]] = [[], [], [], []]
     
     
+    // MARK: Outlets
+    
+    @IBOutlet weak var labelDownload: UILabel!
+    @IBOutlet weak var activityIndicationDownload: UIActivityIndicatorView!
+    @IBOutlet weak var viewFooterTable: UIView!
+    
+    
     // MARK: Life cycle
     
     override func viewDidLoad() {
@@ -65,9 +72,17 @@ class RosterTeamTableViewController: UITableViewController {
         cell.textLabel?.text = heading
         cell.detailTextLabel?.text = playerDetails.position
         cell.imageView?.image = UIImage(named: "placeholderPlayerImg")
+        
+        // add an activity indicator programmatically
+        let downloadImgIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        downloadImgIndicator.center = CGPoint(x: ((cell.imageView?.image?.size.width)! - downloadImgIndicator.intrinsicContentSize.width)/2.0, y: ((cell.imageView?.image?.size.height)! - downloadImgIndicator.intrinsicContentSize.height)/2.0)
+        downloadImgIndicator.hidesWhenStopped = true
+        cell.imageView?.addSubview(downloadImgIndicator)
+        
 
         // download players portrait image
         if let imageUrl = playerDetails.imgUrl {
+            downloadImgIndicator.startAnimating()
             FirebaseClient.sharedInstance.downloadAnImage(imageUrl: imageUrl) { (image, error) in
                 guard error == nil else {
                     // if image couldnt be downloaded just show placeholder, i.e. dont do anything
@@ -78,6 +93,7 @@ class RosterTeamTableViewController: UITableViewController {
                 if cell == tableView.cellForRow(at: indexPath) {
                     self.performUIUpdatesOnMain {
                         cell.imageView?.image = image
+                        downloadImgIndicator.stopAnimating()
                     }
                 }
             }
@@ -94,12 +110,16 @@ class RosterTeamTableViewController: UITableViewController {
             // add players details
             self.playerDetails[self.getSectionIndex(position: player.position)].append(player)
             self.tableView.reloadData()
+            
+            // hide download indication if data available
+            self.viewFooterTable.isHidden = true
         })
         
         // add the connection state listener
         FirebaseClient.sharedInstance.registerConnectionStateListener { (state) in
             self.performUIUpdatesOnMain {
                 self.tableView.tableHeaderView = state ? nil : OfflineIndicationLabel()
+                self.setDownloadIndictation(isOnline: state)
             }
         }
     }
@@ -115,5 +135,11 @@ class RosterTeamTableViewController: UITableViewController {
         default:
             return 3
         }
+    }
+    
+
+    func setDownloadIndictation(isOnline state: Bool) {
+        labelDownload.text = state ? "downloading roster ..." : "check your network connection"
+        state ? activityIndicationDownload.startAnimating() : activityIndicationDownload.stopAnimating()
     }
 }

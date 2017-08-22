@@ -16,6 +16,13 @@ class NewsTableViewController: UITableViewController {
     var newsArticles: [NewsArticle] = []
     
     
+    // MARK: Properties
+    
+    @IBOutlet weak var labelDownload: UILabel!
+    @IBOutlet weak var activityIndicationDownload: UIActivityIndicatorView!
+    @IBOutlet weak var viewTableFooter: UIView!
+    
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -47,6 +54,7 @@ class NewsTableViewController: UITableViewController {
         
         // download image if available
         if let articleImgUrl = article.imgUrl {
+            cell.ArticleActivityIndication.startAnimating()
             FirebaseClient.sharedInstance.downloadAnImage(imageUrl: articleImgUrl, completionHandler: { (image, error) in
                 guard error == nil else {
                     // if image couldnt be downloaded just show placeholder, i.e. dont do anything
@@ -57,6 +65,7 @@ class NewsTableViewController: UITableViewController {
                 if cell == tableView.cellForRow(at: indexPath) {
                     self.performUIUpdatesOnMain {
                         cell.ArticleImage.image = image
+                        cell.ArticleActivityIndication.stopAnimating()
                     }
                 }
                 
@@ -93,15 +102,21 @@ class NewsTableViewController: UITableViewController {
             self.newsArticles.insert(article, at: 0)
             self.tableView.reloadData()
             
-            // remove the check network hint
-            self.tableView.tableFooterView = UIView()
+            // hide download indication
+            self.viewTableFooter.isHidden = true
         }
         
         // add the connection state listener
         FirebaseClient.sharedInstance.registerConnectionStateListener { (state) in
             self.performUIUpdatesOnMain {
                 self.tableView.tableHeaderView = state ? nil : OfflineIndicationLabel()
+                self.setDownloadIndictation(isOnline: state)
             }
         }
+    }
+    
+    func setDownloadIndictation(isOnline state: Bool) {
+        labelDownload.text = state ? "downloading news ..." : "check your network connection"
+        state ? activityIndicationDownload.startAnimating() : activityIndicationDownload.stopAnimating()
     }
 }

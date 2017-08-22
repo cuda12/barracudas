@@ -65,6 +65,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="NRJ-hV-reQ">
+                            <rect key="frame" x="0.0" y="112" width="320" height="103"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="downloading roster ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1y-2U-cdk">
+                                    <rect key="frame" x="91" y="69.5" width="139" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5vB-0N-1ua">
+                                    <rect key="frame" x="150" y="41.5" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="5vB-0N-1ua" firstAttribute="centerX" secondItem="NRJ-hV-reQ" secondAttribute="centerX" id="2Om-gW-QTs"/>
+                                <constraint firstItem="y1y-2U-cdk" firstAttribute="centerX" secondItem="5vB-0N-1ua" secondAttribute="centerX" id="fRM-iN-1kQ"/>
+                                <constraint firstItem="y1y-2U-cdk" firstAttribute="top" secondItem="5vB-0N-1ua" secondAttribute="bottom" constant="8" id="gNL-7F-Oge"/>
+                                <constraint firstItem="5vB-0N-1ua" firstAttribute="centerY" secondItem="NRJ-hV-reQ" secondAttribute="centerY" id="iij-4b-YlX"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="playersCell" textLabel="M4T-5m-uBC" detailTextLabel="h3w-9I-2nF" rowHeight="84" style="IBUITableViewCellStyleSubtitle" id="HXI-sh-7ou">
                                 <rect key="frame" x="0.0" y="28" width="320" height="84"/>
@@ -96,6 +118,11 @@
                             <outlet property="delegate" destination="zXM-Ob-PFW" id="XK9-f3-4vv"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="activityIndicationDownload" destination="5vB-0N-1ua" id="Y2w-FQ-2hb"/>
+                        <outlet property="labelDownload" destination="y1y-2U-cdk" id="Bou-Bx-3Mn"/>
+                        <outlet property="viewFooterTable" destination="NRJ-hV-reQ" id="sFH-fB-dIr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HeB-Ht-0KI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -685,13 +712,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Couldn't connect to the server, check your network connection." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M0r-bT-Or8">
-                            <rect key="frame" x="0.0" y="211" width="320" height="468"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="jJo-pK-3s7">
+                            <rect key="frame" x="0.0" y="211" width="320" height="103"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="downloading news ..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbl-CO-5zO">
+                                    <rect key="frame" x="93" y="69.5" width="134" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ere-6d-dyF">
+                                    <rect key="frame" x="150" y="41.5" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="ere-6d-dyF" firstAttribute="centerY" secondItem="jJo-pK-3s7" secondAttribute="centerY" id="I4G-RL-9ZG"/>
+                                <constraint firstItem="Rbl-CO-5zO" firstAttribute="centerX" secondItem="ere-6d-dyF" secondAttribute="centerX" id="LCO-rN-efk"/>
+                                <constraint firstItem="ere-6d-dyF" firstAttribute="centerX" secondItem="jJo-pK-3s7" secondAttribute="centerX" id="wIf-Xa-W7n"/>
+                                <constraint firstItem="Rbl-CO-5zO" firstAttribute="top" secondItem="ere-6d-dyF" secondAttribute="bottom" constant="8" id="yqE-Iq-EvQ"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="183" id="pVV-ct-3LP" customClass="NewsTableViewCell" customModule="Barracudas" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="183"/>
@@ -707,7 +749,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="304" height="79.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Iq1-zX-4bz" userLabel="Title Stack View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="155.5" height="79.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="156.5" height="79.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="NLA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSa-UD-xui">
                                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="14.5"/>
@@ -717,7 +759,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="749" text="The Cudas take two from xxx" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfR-rb-JLl">
-                                                                    <rect key="frame" x="0.0" y="18.5" width="155.5" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="18.5" width="156.5" height="43.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -733,12 +775,29 @@
                                                                 <constraint firstItem="nfR-rb-JLl" firstAttribute="width" secondItem="Iq1-zX-4bz" secondAttribute="width" id="c32-BF-wIW"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wfg-8c-la2">
-                                                            <rect key="frame" x="163.5" y="0.0" width="140.5" height="79.5"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xst-NB-pwl">
+                                                            <rect key="frame" x="164.5" y="0.0" width="139.5" height="79.5"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wfg-8c-la2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="139.5" height="79"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="wfg-8c-la2" secondAttribute="height" multiplier="16:9" id="wn8-0V-eRZ"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eLP-ku-dZj">
+                                                                    <rect key="frame" x="59.5" y="29" width="20" height="20"/>
+                                                                </activityIndicatorView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="wfg-8c-la2" secondAttribute="height" multiplier="16:9" id="wn8-0V-eRZ"/>
+                                                                <constraint firstItem="wfg-8c-la2" firstAttribute="top" secondItem="xst-NB-pwl" secondAttribute="top" id="0s0-sA-Ko3"/>
+                                                                <constraint firstAttribute="bottom" secondItem="wfg-8c-la2" secondAttribute="bottom" id="CoG-1Q-WRq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="wfg-8c-la2" secondAttribute="trailing" id="M3B-DF-apM"/>
+                                                                <constraint firstItem="eLP-ku-dZj" firstAttribute="centerY" secondItem="xst-NB-pwl" secondAttribute="centerY" id="TBL-0g-RXB"/>
+                                                                <constraint firstItem="wfg-8c-la2" firstAttribute="leading" secondItem="xst-NB-pwl" secondAttribute="leading" id="xWE-F9-mAY"/>
+                                                                <constraint firstItem="eLP-ku-dZj" firstAttribute="centerX" secondItem="xst-NB-pwl" secondAttribute="centerX" id="xWM-RW-VR0"/>
                                                             </constraints>
-                                                        </imageView>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ib-rE-cH0">
@@ -759,6 +818,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="ArticleActivityIndication" destination="eLP-ku-dZj" id="Go7-6S-uWs"/>
                                     <outlet property="ArticleCategory" destination="uSa-UD-xui" id="ECK-Lc-AvT"/>
                                     <outlet property="ArticleImage" destination="wfg-8c-la2" id="o2L-bT-17C"/>
                                     <outlet property="ArticlePreview" destination="9Ib-rE-cH0" id="MW4-Ao-ujE"/>
@@ -773,6 +833,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="XZB-G2-hVW"/>
+                    <connections>
+                        <outlet property="activityIndicationDownload" destination="ere-6d-dyF" id="eNq-WM-phU"/>
+                        <outlet property="labelDownload" destination="Rbl-CO-5zO" id="R9j-EP-vNa"/>
+                        <outlet property="viewTableFooter" destination="jJo-pK-3s7" id="V9t-90-qxZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6pi-o5-MPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
