@@ -79,13 +79,9 @@ class LiveGamesTableViewController: UITableViewController {
     }
     
     func setGameDayDate() {
-        // set current gameday to preset value - Udacity review ONLY
-        /*  - for reviewing purpose only
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = FirebaseClient.Constants.GameDays.DateFormat
         currentGameDay = dateFormatter.string(from: Date())
-        */
-        currentGameDay = "20170806"
     }
     
     func setUIAccordingToSignInStatus(isSignedIn state: Bool) {

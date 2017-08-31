@@ -68,6 +68,7 @@
 		A1375ABA1F3B945F0076ED50 /* SchedulePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulePageViewController.swift; sourceTree = "<group>"; };
 		A1375ABC1F409B4C0076ED50 /* LiveScoringTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveScoringTableViewController.swift; sourceTree = "<group>"; };
 		A1375AC01F409EC40076ED50 /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
+		A13BCA0A1F572EC100036B09 /* Barracudas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Barracudas.entitlements; sourceTree = "<group>"; };
 		A13C23521F20FC1500E3ADAA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A13C23541F20FEDC00E3ADAA /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		A13C23561F22520000E3ADAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		A15EA04B1F1511B500B8B310 /* Barracudas */ = {
 			isa = PBXGroup;
 			children = (
+				A13BCA0A1F572EC100036B09 /* Barracudas.entitlements */,
 				A15EA04C1F1511B500B8B310 /* AppDelegate.swift */,
 				A15EA0601F15217A00B8B310 /* Models */,
 				A15EA0621F15218700B8B310 /* Views */,
@@ -271,6 +273,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 39SU5X655D;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -523,6 +530,7 @@
 			baseConfigurationReference = CB2391AFFD19A3283037472C /* Pods-Barracudas.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Barracudas/Barracudas.entitlements;
 				DEVELOPMENT_TEAM = 39SU5X655D;
 				INFOPLIST_FILE = Barracudas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -537,6 +545,7 @@
 			baseConfigurationReference = DACCF0D756B3E667570A9C8D /* Pods-Barracudas.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Barracudas/Barracudas.entitlements;
 				DEVELOPMENT_TEAM = 39SU5X655D;
 				INFOPLIST_FILE = Barracudas/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

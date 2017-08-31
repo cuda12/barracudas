@@ -11,5 +11,6 @@ target 'Barracudas' do
   pod 'Firebase/Database'
   pod 'FirebaseUI'
   pod 'TwitterCore', '<=2.8.0'
+  pod 'Firebase/Messaging'
   
 end

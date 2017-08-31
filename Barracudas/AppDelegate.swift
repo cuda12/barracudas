@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import UserNotifications
 import Firebase
 import FirebaseAuthUI
+import FirebaseInstanceID
+import FirebaseMessaging
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     // MARK: Properties
     
@@ -23,14 +26,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Application Delegate Methods
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
         // load customized theme
         Theme.applyTheme()
         
+        // display notifications (sent via APNS)
+        UNUserNotificationCenter.current().delegate = self
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: {_, _ in })
+        Messaging.messaging().delegate = self
+        
+        application.registerForRemoteNotifications()
+                
         // configure Firebase
         FirebaseApp.configure()
         
+        // TOOD delete this
+        let token = Messaging.messaging().fcmToken
+        print("FCM token: \(token ?? "")")
+
         return true
     }
 
@@ -62,5 +76,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // to enable google authentication 
         return FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication ?? "") ?? false
     }
+    
+    // the callback to handle data message received via Firebase 
+    func application(received remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+        //TODO
+    }
+    
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print("fcm Token: " + fcmToken)
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        if let messageID = userInfo["gcm.message_id"] {
+            print("message id: \(messageID)")
+        }
+        if let pageIndex = userInfo["click_action"] {
+            if let tabBarController = self.window?.rootViewController as? UITabBarController {
+                tabBarController.selectedIndex = Int((pageIndex as? String)!) ?? 0
+            }
+        }
+        print(userInfo)
+    }
+    
 }
 

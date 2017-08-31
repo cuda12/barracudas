@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseMessaging
 
 struct CudasNotifications {
     
@@ -91,5 +92,22 @@ struct CudasNotifications {
         notificationStates[0][0] = !notificationStates.dropFirst().contains(where: { (states) -> Bool in
             return states.contains(false)
         }) && !notificationStates[0].dropFirst().contains(false)
+    }
+
+    
+    // MARK: subscripe to topics
+    func subscripeToTopics() {
+        // TODO 
+        
+        for (index, sectionTitle) in sectionTitles.enumerated() {
+            for (jndex, notificationLabel) in notificationLabels[index].enumerated() {
+                let topicName = "\(sectionTitle.replacingOccurrences(of: " ", with: ""))_\(notificationLabel.components(separatedBy: " ")[0])"
+                if notificationStates[index][jndex] {
+                    Messaging.messaging().subscribe(toTopic: topicName)
+                } else {
+                    Messaging.messaging().unsubscribe(fromTopic: topicName)
+                }
+            }
+        }
     }
 }

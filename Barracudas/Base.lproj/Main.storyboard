@@ -785,7 +785,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eLP-ku-dZj">
-                                                                    <rect key="frame" x="59.5" y="29" width="20" height="20"/>
+                                                                    <rect key="frame" x="59" y="29" width="20" height="20"/>
                                                                 </activityIndicatorView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

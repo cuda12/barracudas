@@ -9,8 +9,6 @@
 import UIKit
 
 class NotificationsTableViewController: UITableViewController {
-
-    // version 1.1 connect to firebase notifications (not part of the udacity review)
     
     // MARK: Members
     
@@ -80,6 +78,11 @@ extension NotificationsTableViewController: NotificationSettingsCellDelegate {
             // reload the table and update the user defaults with the current states
             tableView.reloadData()
             UserDefaults.standard.set(notifications.notificationStates, forKey: Constants.userDefaultsNotifications)
+            
+            // subscribe to topics
+            performUIUpdatesOnMain {
+                self.notifications.subscripeToTopics()
+            }
         }
     }
 }
