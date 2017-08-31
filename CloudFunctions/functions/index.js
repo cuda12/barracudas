@@ -25,18 +25,9 @@ exports.gameDetailsChanged = functions.database.ref('gamedays/{gamedayDate}/{gam
     if (prevDetails["score"][0] != newDetails["score"][0] || prevDetails["score"][1] != newDetails["score"][1]) {
         console.log(gameLiveMessage(newDetails));
 
-        // TODO change this to topics
-        var registrationToken = "eRtAjkTPbbE:APA91bE7lBpaxgXNzDSkOxr07-KymyW4-hlPfMiQc4G6E-p4zqdasqYm9AiTtuOVB-Nb_67S0rekb1hPYfrYg2-7cV-8u8FEcj4UBHKM_M9_BlJDizVyDVAoszTjgIwFVCPZL1Ff1PR7";
-
-        var payload =  {
-            notification: {
-                title: "New Score",
-                body: gameLiveMessage(newDetails)
-                 // TODO click scoring page
-            }
-        };
-
-        admin.messaging().sendToDevice(registrationToken, payload);
+        // send notification
+        var topicName = newDetails["league"] + "_runs";
+        sendNotificationToTopic("LIVE Score Update", gameLiveMessage(newDetails), topicName);
     }
 
 
@@ -45,18 +36,9 @@ exports.gameDetailsChanged = functions.database.ref('gamedays/{gamedayDate}/{gam
     if (newDetails["state"] == "final") {
         console.log("game ended!!!!!!!!");
 
-        // TODO change this to topics
-        var registrationToken = "eRtAjkTPbbE:APA91bE7lBpaxgXNzDSkOxr07-KymyW4-hlPfMiQc4G6E-p4zqdasqYm9AiTtuOVB-Nb_67S0rekb1hPYfrYg2-7cV-8u8FEcj4UBHKM_M9_BlJDizVyDVAoszTjgIwFVCPZL1Ff1PR7";
-
-        var payload =  {
-            notification: {
-                title: "End of Game",
-                body: gameFinalMessage(newDetails)
-                // TODO click scoring page
-            }
-        };
-
-        admin.messaging().sendToDevice(registrationToken, payload);
+        // send notification
+        var topicName = newDetails["league"] + "_final";
+        sendNotificationToTopic("End of Game", gameLiveMessage(newDetails), topicName);
 
     }
 
@@ -66,16 +48,33 @@ exports.gameDetailsChanged = functions.database.ref('gamedays/{gamedayDate}/{gam
 })
 
 
+// send notification to topic
+
+function sendNotificationToTopic(title, message, topic) {
+    var payload =  {
+            notification: {
+                title: title,
+                body: message
+                 // TODO click scoring page
+            }
+        };
+
+    admin.messaging().sendToTopic(topic, payload);
+    // TODO catch error?
+    return;
+}
+
+
 // Returns the update live game message
 
 function gameLiveMessage(gameDetails) {
-    var messageText = "LIVE " + gameDetails["league"] + "\n" + gameDetails["teams"][0] + " " + gameDetails["score"][0] + " : " + gameDetails["score"][1] + 
-         " " + gameDetails["teams"][1];
+    var messageText = convertLeagueName(gameDetails["league"]) + " - " + gameDetails["teams"][0] + " " + gameDetails["score"][0] + " : " + gameDetails["teams"][1] + 
+         " " + gameDetails["score"][1] + "\n";
 
     if (gameDetails["inning_is_top"] == true) {
-        messageText += ", T";
+        messageText += "T";
     } else {
-        messageText += ", B";
+        messageText += "B";
     }
 
     messageText += gameDetails["inning"] + ", " + gameDetails["outs"] + " Outs";
@@ -87,12 +86,31 @@ function gameLiveMessage(gameDetails) {
 // Returns the final game message
 
 function gameFinalMessage(gameDetails) {
-    var messageText = "FINAL: " + gameDetails["league"] + ": " + gameDetails["teams"][0] + " " + gameDetails["score"][0] + " vs. " + gameDetails["teams"][1] + 
+    var messageText =  convertLeagueName(gameDetails["league"]) + " - " + gameDetails["teams"][0] + " " + gameDetails["score"][0] + " : " + gameDetails["teams"][1] + 
          " " + gameDetails["score"][1];
 
     if (gameDetails["inning"] != 9) {
-        messageText += ", F/" + gameDetails["inning"];
+        messageText += "\nF/" + gameDetails["inning"];
     }
 
     return messageText;
 }
+
+
+// convert league name
+
+function convertLeagueName(name) {
+    var convertedName;
+
+    switch(name) {
+        case "FPSB": 
+            convertedName = "Softball";
+            break;
+        // TODO 1. Liga
+        default:
+            convertedName = name;
+    }
+
+    return convertedName;
+}
+
