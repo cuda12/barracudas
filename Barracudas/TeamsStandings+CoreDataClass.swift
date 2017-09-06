@@ -41,6 +41,10 @@ public class TeamsStandings: NSManagedObject {
     
     func convertStreakToAbbr(streak: String) -> String {
         let strComp = streak.components(separatedBy: " ")
-        return strComp[0].substring(to: streak.index(streak.startIndex, offsetBy: 1)) + strComp[1]
+        if strComp.count > 1 {
+            return strComp[0].substring(to: streak.index(streak.startIndex, offsetBy: 1)) + strComp[1]
+        } else {
+            return strComp[0]
+        }
     }
 }
