@@ -1,0 +1,11 @@
+www/*
+Podfile.lock
+Pods/*
+*.DS_Store
+Barracudas.xcodeproj/xcuserdata/andy.xcuserdatad/xcdebugger/*
+Barracudas.xcworkspace/xcuserdata/andy.xcuserdatad/xcdebugger/*
+CloudFunctions/.firebaserc
+CloudFunctions/firebase.json
+CloudFunctions/functions/firebase-debug.log
+CloudFunctions/functions/node_modules/*
+CloudFunctions/functions/package.json
